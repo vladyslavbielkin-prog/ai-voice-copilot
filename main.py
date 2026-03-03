@@ -60,7 +60,7 @@ async def twilio_ws(websocket: WebSocket):
     async with dg.listen.v1.connect(
         model="nova-2",
         language="uk",
-        encoding="linear16",
+        encoding="mulaw",     # ✅ Twilio надсилає mulaw за замовчуванням
         sample_rate="8000",
         channels="1",
         interim_results="true",
