@@ -20,7 +20,6 @@ def health():
 @app.websocket("/ws")
 async def twilio_ws(websocket: WebSocket):
     await websocket.accept()
-    print("🔌 Twilio connected")
 
     dg_key = os.getenv("DEEPGRAM_API_KEY")
     if not dg_key:
@@ -53,9 +52,9 @@ async def twilio_ws(websocket: WebSocket):
         punctuate="true",
         smart_format="true",
     ) as dg_socket:
-        print("🧠 Deepgram connected")
+        print("\n📞 Дзвінок розпочато")
 
-        # ✅ Читаємо транскрипти напряму через async for — надійніше ніж on()
+        # ✅ Читаємо транскрипти напряму через async for
         async def read_transcripts():
             nonlocal flush_task
             async for message in dg_socket:
@@ -63,7 +62,6 @@ async def twilio_ws(websocket: WebSocket):
                     continue
                 try:
                     text = (message.channel.alternatives[0].transcript or "").strip()
-                    print(f"[DG RAW] is_final={message.is_final} speech_final={message.speech_final} text={repr(text)}")
                     if not text or not message.is_final:
                         continue
                     speaker_buffer.append(text)
@@ -72,7 +70,7 @@ async def twilio_ws(websocket: WebSocket):
                             flush_task.cancel()
                         flush_task = asyncio.create_task(flush_buffer())
                 except Exception as e:
-                    print(f"⚠️ Transcript parse error: {e}")
+                    print(f"⚠️ Помилка: {e}")
 
         reader_task = asyncio.create_task(read_transcripts())
 
@@ -83,7 +81,7 @@ async def twilio_ws(websocket: WebSocket):
                 event = data.get("event")
 
                 if event == "start":
-                    print("🎬 Stream started")
+                    pass  # стрім почався
 
                 elif event == "media":
                     payload_b64 = data.get("media", {}).get("payload")
@@ -92,11 +90,11 @@ async def twilio_ws(websocket: WebSocket):
                         await dg_socket.send_media(audio_bytes)
 
                 elif event == "stop":
-                    print("🔴 Stream stopped")
+                    print("� Дзвінок завершено")
                     break
 
         except WebSocketDisconnect:
-            print("🔌 Twilio disconnected")
+            print("� Дзвінок завершено")
 
         finally:
             reader_task.cancel()
@@ -105,4 +103,4 @@ async def twilio_ws(websocket: WebSocket):
             if speaker_buffer:
                 print(f"🗣 Спікер: {' '.join(speaker_buffer)}")
                 speaker_buffer.clear()
-            print("✅ Session closed")
+            print("\n" + "-"*40 + "\n")
