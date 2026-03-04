@@ -61,8 +61,8 @@ def get_token():
 async def twiml_outbound(request: Request):
     """TwiML для вихідного дзвінка — запускає стрім і дзвонить клієнту"""
     form = await request.form()
-    # SDK v2 надсилає кастомні параметри в полі "To" або через Digits
     to_number = form.get("To") or form.get("to") or ""
+    print(f"📲 /twiml/outbound → To={to_number!r}, всі поля: {dict(form)}", flush=True)
 
     response = VoiceResponse()
 

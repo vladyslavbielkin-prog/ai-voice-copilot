@@ -216,8 +216,9 @@
         setStatus("📳 Виклик...", "green");
       });
 
-      activeCall.on("disconnect", () => {
-        setStatus("Готовий до дзвінка", "green");
+      activeCall.on("disconnect", (call) => {
+        const reason = call?.parameters?.DisconnectReason || "";
+        setStatus("Готовий до дзвінка" + (reason ? ` (${reason})` : ""), "green");
         callBtn.disabled = false;
         hangupBtn.disabled = true;
         activeCall = null;
@@ -225,7 +226,9 @@
 
       activeCall.on("error", (e) => {
         console.error("Call error:", e);
-        setStatus("❌ Помилка дзвінка: " + e.message, "red");
+        const msg = e.message || JSON.stringify(e);
+        const code = e.code ? ` [${e.code}]` : "";
+        setStatus("❌ " + msg + code, "red");
         callBtn.disabled = false;
         hangupBtn.disabled = true;
       });
