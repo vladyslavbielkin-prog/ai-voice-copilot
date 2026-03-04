@@ -32,7 +32,7 @@ async def twilio_ws(websocket: WebSocket):
 
     speaker_buffer: list[str] = []
     flush_task: asyncio.Task | None = None
-    FLUSH_DELAY_SEC = 3.0
+    FLUSH_DELAY_SEC = 1.5
 
     async def flush_buffer():
         await asyncio.sleep(FLUSH_DELAY_SEC)
@@ -40,8 +40,25 @@ async def twilio_ws(websocket: WebSocket):
             print(f"🗣 Спікер: {' '.join(speaker_buffer)}", flush=True)
             speaker_buffer.clear()
 
+    async def read_transcripts(dg_socket, label: str):
+        nonlocal flush_task
+        async for message in dg_socket:
+            if not isinstance(message, ListenV1Results):
+                continue
+            try:
+                text = (message.channel.alternatives[0].transcript or "").strip()
+                if not text or not message.is_final:
+                    continue
+                speaker_buffer.append(text)
+                if message.speech_final:
+                    if flush_task and not flush_task.done():
+                        flush_task.cancel()
+                    flush_task = asyncio.create_task(flush_buffer())
+            except Exception as e:
+                print(f"⚠️ [{label}] Помилка парсингу: {e}", flush=True)
+
     try:
-        async with dg.listen.v1.connect(
+        dg_params = dict(
             model="nova-2",
             language="uk",
             encoding="mulaw",
@@ -50,55 +67,54 @@ async def twilio_ws(websocket: WebSocket):
             interim_results="true",
             punctuate="true",
             smart_format="true",
-        ) as dg_socket:
-            print("🧠 Deepgram підключено", flush=True)
+        )
 
-            async def read_transcripts():
-                nonlocal flush_task
-                async for message in dg_socket:
-                    if not isinstance(message, ListenV1Results):
-                        continue
-                    try:
-                        text = (message.channel.alternatives[0].transcript or "").strip()
-                        if not text or not message.is_final:
-                            continue
-                        speaker_buffer.append(text)
-                        if message.speech_final:
-                            if flush_task and not flush_task.done():
-                                flush_task.cancel()
-                            flush_task = asyncio.create_task(flush_buffer())
-                    except Exception as e:
-                        print(f"⚠️ Помилка парсингу: {e}", flush=True)
+        inbound_socket = await dg.listen.v1.connect(**dg_params).__aenter__()
+        outbound_socket = await dg.listen.v1.connect(**dg_params).__aenter__()
 
-            reader_task = asyncio.create_task(read_transcripts())
+        print("🧠 Deepgram підключено (x2)", flush=True)
 
+        inbound_task = asyncio.create_task(read_transcripts(inbound_socket, "IN"))
+        outbound_task = asyncio.create_task(read_transcripts(outbound_socket, "OUT"))
+
+        try:
+            while True:
+                msg = await websocket.receive_text()
+                data = json.loads(msg)
+                event = data.get("event")
+
+                if event == "media":
+                    media = data.get("media", {})
+                    payload_b64 = media.get("payload")
+                    track = media.get("track", "inbound")
+                    if payload_b64:
+                        audio_bytes = base64.b64decode(payload_b64)
+                        if track == "outbound":
+                            await outbound_socket.send_media(audio_bytes)
+                        else:
+                            await inbound_socket.send_media(audio_bytes)
+
+                elif event == "stop":
+                    print("📵 Дзвінок завершено", flush=True)
+                    break
+
+        except WebSocketDisconnect:
+            print("📵 Дзвінок завершено", flush=True)
+
+        finally:
+            inbound_task.cancel()
+            outbound_task.cancel()
+            if flush_task and not flush_task.done():
+                flush_task.cancel()
+            if speaker_buffer:
+                print(f"🗣 Спікер: {' '.join(speaker_buffer)}", flush=True)
+                speaker_buffer.clear()
+            print("-" * 40, flush=True)
             try:
-                while True:
-                    msg = await websocket.receive_text()
-                    data = json.loads(msg)
-                    event = data.get("event")
-
-                    if event == "media":
-                        payload_b64 = data.get("media", {}).get("payload")
-                        if payload_b64:
-                            audio_bytes = base64.b64decode(payload_b64)
-                            await dg_socket.send_media(audio_bytes)
-
-                    elif event == "stop":
-                        print("📵 Дзвінок завершено", flush=True)
-                        break
-
-            except WebSocketDisconnect:
-                print("📵 Дзвінок завершено", flush=True)
-
-            finally:
-                reader_task.cancel()
-                if flush_task and not flush_task.done():
-                    flush_task.cancel()
-                if speaker_buffer:
-                    print(f"🗣 Спікер: {' '.join(speaker_buffer)}", flush=True)
-                    speaker_buffer.clear()
-                print("-" * 40, flush=True)
+                await inbound_socket.__aexit__(None, None, None)
+                await outbound_socket.__aexit__(None, None, None)
+            except Exception:
+                pass
 
     except Exception as e:
         print(f"❌ Критична помилка: {e}", flush=True)
