@@ -99,6 +99,18 @@
       line-height: 1.5;
       border-left: 3px solid #22c55e;
     }
+    .transcript-item.client {
+      border-left-color: #3b82f6;
+    }
+    .transcript-item .speaker {
+      font-size: 11px;
+      font-weight: 600;
+      margin-bottom: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .transcript-item.sales .speaker { color: #22c55e; }
+    .transcript-item.client .speaker { color: #3b82f6; }
     .transcript-item .time { font-size: 11px; color: #555; margin-top: 4px; }
     .empty { text-align: center; color: #444; font-size: 13px; padding: 24px 0; }
   </style>
@@ -151,16 +163,17 @@
     statusDot.className = "status-dot " + color;
   }
 
-  function addTranscript(text) {
+  function addTranscript(text, speaker) {
     const empty = document.getElementById("emptyMsg");
     if (empty) empty.remove();
     transcriptCount++;
     transcriptCountEl.textContent = transcriptCount + " речень";
 
     const now = new Date().toLocaleTimeString("uk-UA");
+    const speakerLabel = speaker === "sales" ? "🟢 Sales (агент)" : speaker === "client" ? "🔵 Клієнт" : "🎙 Невідомо";
     const el = document.createElement("div");
-    el.className = "transcript-item";
-    el.innerHTML = `${text}<div class="time">${now}</div>`;
+    el.className = "transcript-item " + (speaker || "");
+    el.innerHTML = `<div class="speaker">${speakerLabel}</div>${text}<div class="time">${now}</div>`;
     transcriptList.prepend(el);
   }
 
@@ -251,7 +264,7 @@
     const ws = new WebSocket(`${proto}://${location.host}/transcript`);
     ws.onmessage = (e) => {
       const data = JSON.parse(e.data);
-      if (data.text) addTranscript(data.text);
+      if (data.text) addTranscript(data.text, data.speaker || "unknown");
     };
     ws.onclose = () => setTimeout(connectTranscriptWs, 2000);
   }

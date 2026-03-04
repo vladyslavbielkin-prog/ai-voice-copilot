@@ -92,12 +92,12 @@ async def transcript_ws(websocket: WebSocket):
         transcript_clients.remove(websocket)
 
 
-async def broadcast_transcript(text: str):
+async def broadcast_transcript(text: str, speaker: str = "unknown"):
     """Надсилає транскрипт всім підключеним браузерам"""
     dead = []
     for client in transcript_clients:
         try:
-            await client.send_text(json.dumps({"text": text}))
+            await client.send_text(json.dumps({"text": text, "speaker": speaker}))
         except Exception:
             dead.append(client)
     for d in dead:
@@ -118,23 +118,26 @@ async def twilio_ws(websocket: WebSocket):
 
     dg = AsyncDeepgramClient(api_key=dg_key)
 
-    speaker_buffer: list[str] = []
-    flush_task: asyncio.Task | None = None
     FLUSH_DELAY_SEC = 1.0
 
-    def do_flush():
-        if speaker_buffer:
-            text = " ".join(speaker_buffer)
-            print(f"🗣 Спікер: {text}", flush=True)
-            speaker_buffer.clear()
-            asyncio.create_task(broadcast_transcript(text))
+    # Окремі буфери та таймери для кожного спікера
+    buffers: dict[str, list[str]] = {"sales": [], "client": []}
+    flush_tasks: dict[str, asyncio.Task | None] = {"sales": None, "client": None}
 
-    async def flush_buffer():
+    def do_flush(speaker: str):
+        buf = buffers[speaker]
+        if buf:
+            text = " ".join(buf)
+            label = "🟢 Sales" if speaker == "sales" else "🔵 Client"
+            print(f"{label}: {text}", flush=True)
+            buf.clear()
+            asyncio.create_task(broadcast_transcript(text, speaker))
+
+    async def flush_buffer(speaker: str):
         await asyncio.sleep(FLUSH_DELAY_SEC)
-        do_flush()
+        do_flush(speaker)
 
-    async def read_transcripts(dg_socket, label: str):
-        nonlocal flush_task
+    async def read_transcripts(dg_socket, speaker: str):
         async for message in dg_socket:
             if not isinstance(message, ListenV1Results):
                 continue
@@ -142,17 +145,18 @@ async def twilio_ws(websocket: WebSocket):
                 text = (message.channel.alternatives[0].transcript or "").strip()
                 if not text or not message.is_final:
                     continue
-                speaker_buffer.append(text)
+                buffers[speaker].append(text)
+                t = flush_tasks[speaker]
                 if message.speech_final:
-                    if flush_task and not flush_task.done():
-                        flush_task.cancel()
-                    do_flush()
+                    if t and not t.done():
+                        t.cancel()
+                    do_flush(speaker)
                 else:
-                    if flush_task and not flush_task.done():
-                        flush_task.cancel()
-                    flush_task = asyncio.create_task(flush_buffer())
+                    if t and not t.done():
+                        t.cancel()
+                    flush_tasks[speaker] = asyncio.create_task(flush_buffer(speaker))
             except Exception as e:
-                print(f"⚠️ [{label}] Помилка парсингу: {e}", flush=True)
+                print(f"⚠️ [{speaker}] Помилка парсингу: {e}", flush=True)
 
     dg_params = dict(
         model="nova-2",
@@ -176,8 +180,8 @@ async def twilio_ws(websocket: WebSocket):
 
             print("🧠 Deepgram підключено (x2)", flush=True)
 
-            inbound_task = asyncio.create_task(read_transcripts(inbound_socket, "IN"))
-            outbound_task = asyncio.create_task(read_transcripts(outbound_socket, "OUT"))
+            inbound_task = asyncio.create_task(read_transcripts(inbound_socket, "client"))
+            outbound_task = asyncio.create_task(read_transcripts(outbound_socket, "sales"))
 
             try:
                 while True:
@@ -206,9 +210,11 @@ async def twilio_ws(websocket: WebSocket):
             finally:
                 inbound_task.cancel()
                 outbound_task.cancel()
-                if flush_task and not flush_task.done():
-                    flush_task.cancel()
-                do_flush()
+                for sp, t in flush_tasks.items():
+                    if t and not t.done():
+                        t.cancel()
+                do_flush("sales")
+                do_flush("client")
                 print("-" * 40, flush=True)
 
     except Exception as e:
