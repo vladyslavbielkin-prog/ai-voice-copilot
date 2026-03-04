@@ -131,9 +131,10 @@
   </div>
 </div>
 
-<script src="https://sdk.twilio.com/js/client/v1.14/twilio.js"></script>
+<script src="https://sdk.twilio.com/js/client/v2.4/twilio.min.js"></script>
 <script>
   let device = null;
+  let activeCall = null;
   let transcriptCount = 0;
 
   const statusDot = document.getElementById("statusDot");
@@ -151,7 +152,8 @@
   }
 
   function addTranscript(text) {
-    if (emptyMsg) emptyMsg.remove();
+    const empty = document.getElementById("emptyMsg");
+    if (empty) empty.remove();
     transcriptCount++;
     transcriptCountEl.textContent = transcriptCount + " речень";
 
@@ -168,43 +170,76 @@
       const res = await fetch("/token");
       const { token } = await res.json();
 
-      device = new Twilio.Device(token, { codecPreferences: ["opus", "pcmu"] });
+      device = new Twilio.Device(token, {
+        codecPreferences: ["opus", "pcmu"],
+        enableIceRestart: true,
+      });
 
-      device.on("ready", () => {
+      device.on("registered", () => {
         setStatus("Готовий до дзвінка", "green");
         callBtn.disabled = false;
       });
 
       device.on("error", (e) => {
-        setStatus("Помилка: " + e.message, "red");
+        console.error("Twilio Device error:", e);
+        setStatus("❌ " + (e.message || e.code), "red");
       });
 
-      device.on("connect", () => {
+      device.on("incoming", (call) => {
+        call.accept();
+      });
+
+      await device.register();
+
+    } catch(e) {
+      console.error("Init error:", e);
+      setStatus("❌ " + e.message, "red");
+    }
+  }
+
+  callBtn.addEventListener("click", async () => {
+    const to = toNumber.value.trim();
+    if (!to) { setStatus("⚠️ Введи номер клієнта", "red"); return; }
+
+    setStatus("Набір...", "green");
+    callBtn.disabled = true;
+
+    try {
+      activeCall = await device.connect({ params: { To: to } });
+
+      activeCall.on("accept", () => {
         setStatus("🟢 Дзвінок активний", "green");
-        callBtn.disabled = true;
         hangupBtn.disabled = false;
       });
 
-      device.on("disconnect", () => {
+      activeCall.on("ringing", () => {
+        setStatus("📳 Виклик...", "green");
+      });
+
+      activeCall.on("disconnect", () => {
         setStatus("Готовий до дзвінка", "green");
+        callBtn.disabled = false;
+        hangupBtn.disabled = true;
+        activeCall = null;
+      });
+
+      activeCall.on("error", (e) => {
+        console.error("Call error:", e);
+        setStatus("❌ Помилка дзвінка: " + e.message, "red");
         callBtn.disabled = false;
         hangupBtn.disabled = true;
       });
 
     } catch(e) {
-      setStatus("❌ Помилка ініціалізації", "red");
+      console.error("Connect error:", e);
+      setStatus("❌ " + e.message, "red");
+      callBtn.disabled = false;
     }
-  }
-
-  callBtn.addEventListener("click", () => {
-    const to = toNumber.value.trim();
-    if (!to) { setStatus("⚠️ Введи номер клієнта", "red"); return; }
-    setStatus("Набір...", "green");
-    device.connect({ To: to });
   });
 
   hangupBtn.addEventListener("click", () => {
-    device.disconnectAll();
+    if (activeCall) activeCall.disconnect();
+    else device.disconnectAll();
   });
 
   // Realtime транскрипти через WebSocket

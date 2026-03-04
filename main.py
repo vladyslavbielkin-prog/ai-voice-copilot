@@ -41,14 +41,18 @@ def index():
 
 @app.get("/token")
 def get_token():
-    """Генерує Access Token для Twilio Voice SDK"""
+    """Генерує Access Token для Twilio Voice SDK v2"""
     token = AccessToken(
         TWILIO_ACCOUNT_SID,
         TWILIO_API_KEY,
         TWILIO_API_SECRET,
         identity="sales-agent",
+        ttl=3600,
     )
-    grant = VoiceGrant(outgoing_application_sid=TWILIO_TWIML_APP_SID)
+    grant = VoiceGrant(
+        outgoing_application_sid=TWILIO_TWIML_APP_SID,
+        incoming_allow=True,
+    )
     token.add_grant(grant)
     return JSONResponse({"token": token.to_jwt()})
 
@@ -57,7 +61,8 @@ def get_token():
 async def twiml_outbound(request: Request):
     """TwiML для вихідного дзвінка — запускає стрім і дзвонить клієнту"""
     form = await request.form()
-    to_number = form.get("To", "")
+    # SDK v2 надсилає кастомні параметри в полі "To" або через Digits
+    to_number = form.get("To") or form.get("to") or ""
 
     response = VoiceResponse()
 
@@ -65,9 +70,12 @@ async def twiml_outbound(request: Request):
     start.stream(url="wss://ai-voice-copilot.fly.dev/ws", track="both_tracks")
     response.append(start)
 
-    dial = Dial(caller_id=TWILIO_FROM_NUMBER)
-    dial.number(to_number)
-    response.append(dial)
+    if to_number:
+        dial = Dial(caller_id=TWILIO_FROM_NUMBER)
+        dial.number(to_number)
+        response.append(dial)
+    else:
+        response.say("Номер клієнта не вказано.", language="uk-UA")
 
     return HTMLResponse(content=str(response), media_type="application/xml")
 
