@@ -2,6 +2,7 @@ import os
 import json
 import base64
 import asyncio
+from contextlib import AsyncExitStack
 
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.responses import JSONResponse
@@ -57,64 +58,64 @@ async def twilio_ws(websocket: WebSocket):
             except Exception as e:
                 print(f"⚠️ [{label}] Помилка парсингу: {e}", flush=True)
 
+    dg_params = dict(
+        model="nova-2",
+        language="uk",
+        encoding="mulaw",
+        sample_rate="8000",
+        channels="1",
+        interim_results="true",
+        punctuate="true",
+        smart_format="true",
+    )
+
     try:
-        dg_params = dict(
-            model="nova-2",
-            language="uk",
-            encoding="mulaw",
-            sample_rate="8000",
-            channels="1",
-            interim_results="true",
-            punctuate="true",
-            smart_format="true",
-        )
+        async with AsyncExitStack() as stack:
+            inbound_socket = await stack.enter_async_context(
+                dg.listen.v1.connect(**dg_params)
+            )
+            outbound_socket = await stack.enter_async_context(
+                dg.listen.v1.connect(**dg_params)
+            )
 
-        inbound_socket = await dg.listen.v1.connect(**dg_params).__aenter__()
-        outbound_socket = await dg.listen.v1.connect(**dg_params).__aenter__()
+            print("🧠 Deepgram підключено (x2)", flush=True)
 
-        print("🧠 Deepgram підключено (x2)", flush=True)
+            inbound_task = asyncio.create_task(read_transcripts(inbound_socket, "IN"))
+            outbound_task = asyncio.create_task(read_transcripts(outbound_socket, "OUT"))
 
-        inbound_task = asyncio.create_task(read_transcripts(inbound_socket, "IN"))
-        outbound_task = asyncio.create_task(read_transcripts(outbound_socket, "OUT"))
-
-        try:
-            while True:
-                msg = await websocket.receive_text()
-                data = json.loads(msg)
-                event = data.get("event")
-
-                if event == "media":
-                    media = data.get("media", {})
-                    payload_b64 = media.get("payload")
-                    track = media.get("track", "inbound")
-                    if payload_b64:
-                        audio_bytes = base64.b64decode(payload_b64)
-                        if track == "outbound":
-                            await outbound_socket.send_media(audio_bytes)
-                        else:
-                            await inbound_socket.send_media(audio_bytes)
-
-                elif event == "stop":
-                    print("📵 Дзвінок завершено", flush=True)
-                    break
-
-        except WebSocketDisconnect:
-            print("📵 Дзвінок завершено", flush=True)
-
-        finally:
-            inbound_task.cancel()
-            outbound_task.cancel()
-            if flush_task and not flush_task.done():
-                flush_task.cancel()
-            if speaker_buffer:
-                print(f"🗣 Спікер: {' '.join(speaker_buffer)}", flush=True)
-                speaker_buffer.clear()
-            print("-" * 40, flush=True)
             try:
-                await inbound_socket.__aexit__(None, None, None)
-                await outbound_socket.__aexit__(None, None, None)
-            except Exception:
-                pass
+                while True:
+                    msg = await websocket.receive_text()
+                    data = json.loads(msg)
+                    event = data.get("event")
+
+                    if event == "media":
+                        media = data.get("media", {})
+                        payload_b64 = media.get("payload")
+                        track = media.get("track", "inbound")
+                        if payload_b64:
+                            audio_bytes = base64.b64decode(payload_b64)
+                            if track == "outbound":
+                                await outbound_socket.send_media(audio_bytes)
+                            else:
+                                await inbound_socket.send_media(audio_bytes)
+
+                    elif event == "stop":
+                        print("📵 Дзвінок завершено", flush=True)
+                        break
+
+            except WebSocketDisconnect:
+                print("📵 Дзвінок завершено", flush=True)
+
+            finally:
+                inbound_task.cancel()
+                outbound_task.cancel()
+                if flush_task and not flush_task.done():
+                    flush_task.cancel()
+                if speaker_buffer:
+                    print(f"🗣 Спікер: {' '.join(speaker_buffer)}", flush=True)
+                    speaker_buffer.clear()
+                print("-" * 40, flush=True)
 
     except Exception as e:
         print(f"❌ Критична помилка: {e}", flush=True)
