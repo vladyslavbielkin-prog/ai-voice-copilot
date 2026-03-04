@@ -1,3 +1,5 @@
 fastapi
 uvicorn[standard]
 deepgram-sdk
+twilio
+python-multipart

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Voice Copilot</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #0f0f0f;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 40px 16px;
+    }
+    .container { width: 100%; max-width: 480px; }
+    h1 { font-size: 20px; font-weight: 600; margin-bottom: 24px; color: #fff; }
+    .card {
+      background: #1a1a1a;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 16px;
+    }
+    label { font-size: 12px; color: #888; margin-bottom: 6px; display: block; }
+    input {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 8px;
+      border: 1px solid #2a2a2a;
+      background: #111;
+      color: #fff;
+      font-size: 16px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    input:focus { border-color: #22c55e; }
+    .buttons { display: flex; gap: 10px; margin-top: 16px; }
+    button {
+      flex: 1;
+      padding: 13px;
+      border-radius: 8px;
+      border: none;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    button:disabled { opacity: 0.4; cursor: not-allowed; }
+    #callBtn { background: #22c55e; color: #fff; }
+    #callBtn:hover:not(:disabled) { background: #16a34a; }
+    #hangupBtn { background: #ef4444; color: #fff; }
+    #hangupBtn:hover:not(:disabled) { background: #dc2626; }
+    .status-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      background: #111;
+      border-radius: 8px;
+      margin-top: 14px;
+      font-size: 13px;
+      color: #888;
+    }
+    .status-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #888;
+      flex-shrink: 0;
+    }
+    .status-dot.green { background: #22c55e; animation: pulse 1.5s infinite; }
+    .status-dot.red { background: #ef4444; }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    .transcript-card { background: #1a1a1a; border-radius: 12px; padding: 24px; }
+    .transcript-header {
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 14px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .transcript-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      max-height: 360px;
+      overflow-y: auto;
+    }
+    .transcript-item {
+      background: #111;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 14px;
+      line-height: 1.5;
+      border-left: 3px solid #22c55e;
+    }
+    .transcript-item .time { font-size: 11px; color: #555; margin-top: 4px; }
+    .empty { text-align: center; color: #444; font-size: 13px; padding: 24px 0; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>🎙 AI Voice Copilot</h1>
+
+  <div class="card">
+    <label>НОМЕР КЛІЄНТА</label>
+    <input id="toNumber" type="tel" placeholder="+420XXXXXXXXX" />
+    <div class="buttons">
+      <button id="callBtn">📞 Дзвонити</button>
+      <button id="hangupBtn" disabled>📵 Завершити</button>
+    </div>
+    <div class="status-bar">
+      <div class="status-dot" id="statusDot"></div>
+      <span id="statusText">Ініціалізація...</span>
+    </div>
+  </div>
+
+  <div class="transcript-card">
+    <div class="transcript-header">
+      <span>ТРАНСКРИПТ</span>
+      <span id="transcriptCount">0 речень</span>
+    </div>
+    <div class="transcript-list" id="transcriptList">
+      <div class="empty" id="emptyMsg">Транскрипт з'явиться під час дзвінка</div>
+    </div>
+  </div>
+</div>
+
+<script src="https://sdk.twilio.com/js/client/v1.14/twilio.js"></script>
+<script>
+  let device = null;
+  let transcriptCount = 0;
+
+  const statusDot = document.getElementById("statusDot");
+  const statusText = document.getElementById("statusText");
+  const callBtn = document.getElementById("callBtn");
+  const hangupBtn = document.getElementById("hangupBtn");
+  const toNumber = document.getElementById("toNumber");
+  const transcriptList = document.getElementById("transcriptList");
+  const transcriptCountEl = document.getElementById("transcriptCount");
+  const emptyMsg = document.getElementById("emptyMsg");
+
+  function setStatus(msg, color = "") {
+    statusText.textContent = msg;
+    statusDot.className = "status-dot " + color;
+  }
+
+  function addTranscript(text) {
+    if (emptyMsg) emptyMsg.remove();
+    transcriptCount++;
+    transcriptCountEl.textContent = transcriptCount + " речень";
+
+    const now = new Date().toLocaleTimeString("uk-UA");
+    const el = document.createElement("div");
+    el.className = "transcript-item";
+    el.innerHTML = `${text}<div class="time">${now}</div>`;
+    transcriptList.prepend(el);
+  }
+
+  async function init() {
+    setStatus("Підключення...");
+    try {
+      const res = await fetch("/token");
+      const { token } = await res.json();
+
+      device = new Twilio.Device(token, { codecPreferences: ["opus", "pcmu"] });
+
+      device.on("ready", () => {
+        setStatus("Готовий до дзвінка", "green");
+        callBtn.disabled = false;
+      });
+
+      device.on("error", (e) => {
+        setStatus("Помилка: " + e.message, "red");
+      });
+
+      device.on("connect", () => {
+        setStatus("🟢 Дзвінок активний", "green");
+        callBtn.disabled = true;
+        hangupBtn.disabled = false;
+      });
+
+      device.on("disconnect", () => {
+        setStatus("Готовий до дзвінка", "green");
+        callBtn.disabled = false;
+        hangupBtn.disabled = true;
+      });
+
+    } catch(e) {
+      setStatus("❌ Помилка ініціалізації", "red");
+    }
+  }
+
+  callBtn.addEventListener("click", () => {
+    const to = toNumber.value.trim();
+    if (!to) { setStatus("⚠️ Введи номер клієнта", "red"); return; }
+    setStatus("Набір...", "green");
+    device.connect({ To: to });
+  });
+
+  hangupBtn.addEventListener("click", () => {
+    device.disconnectAll();
+  });
+
+  // Realtime транскрипти через WebSocket
+  function connectTranscriptWs() {
+    const proto = location.protocol === "https:" ? "wss" : "ws";
+    const ws = new WebSocket(`${proto}://${location.host}/transcript`);
+    ws.onmessage = (e) => {
+      const data = JSON.parse(e.data);
+      if (data.text) addTranscript(data.text);
+    };
+    ws.onclose = () => setTimeout(connectTranscriptWs, 2000);
+  }
+
+  connectTranscriptWs();
+  init();
+</script>
+</body>
+</html>

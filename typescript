@@ -1539,4 +1539,3617 @@ app    	4d892724a32978	13     	iad   	started	    	1 total, 1 passing	2026-03-03
 { [11 bytes data]
 100    11  100    11    0     0     43      0 --:--:-- --:--:-- --:--:--    44
 * Connection #0 to host ai-voice-copilot.fly.dev left intact
-{"ok":true}[1m[7m%[27m[1m[0m                                                                                [0m[27m[24m[Jmacbookair@MacBook-Air-MacBook AI-Voice-Copilot % [K[?2004h
+{"ok":true}[1m[7m%[27m[1m[0m                                                                                [0m[27m[24m[Jmacbookair@MacBook-Air-MacBook AI-Voice-Copilot % [K[?2004h[?2004l
+[1m[7m%[27m[1m[0m                                                                                [0m[27m[24m[Jmacbookair@MacBook-Air-MacBook AI-Voice-Copilot % [K[?2004h  git add . && git commit -m "f [Kiix: auto_stop off + min_machines_running 1" && git push origin main[?2004l
+[main 7d11030] fix: auto_stop off + min_machines_running 1
+ 4 files changed, 1654 insertions(+), 5 deletions(-)
+ create mode 100644 main.py.bak
+ create mode 100644 typescript
+Enumerating objects: 9, done.
+Counting objects:  11% (1/9)Counting objects:  22% (2/9)Counting objects:  33% (3/9)Counting objects:  44% (4/9)Counting objects:  55% (5/9)Counting objects:  66% (6/9)Counting objects:  77% (7/9)Counting objects:  88% (8/9)Counting objects: 100% (9/9)Counting objects: 100% (9/9), done.
+Delta compression using up to 8 threads
+Compressing objects:  16% (1/6)Compressing objects:  33% (2/6)Compressing objects:  50% (3/6)Compressing objects:  66% (4/6)Compressing objects:  83% (5/6)Compressing objects: 100% (6/6)Compressing objects: 100% (6/6), done.
+Writing objects:  16% (1/6)Writing objects:  33% (2/6)Writing objects:  50% (3/6)Writing objects:  66% (4/6)Writing objects:  83% (5/6)Writing objects: 100% (6/6)Writing objects: 100% (6/6), 6.72 KiB | 6.72 MiB/s, done.
+Total 6 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas:   0% (0/2)[Kremote: Resolving deltas:  50% (1/2)[Kremote: Resolving deltas: 100% (2/2)[Kremote: Resolving deltas: 100% (2/2), completed with 2 local objects.[K
+To https://github.com/vladyslavbielkin-prog/ai-voice-copilot.git
+   7b9e9b0..7d11030  main -> main
+[1m[7m%[27m[1m[0m                                                                                [0m[27m[24m[Jmacbookair@MacBook-Air-MacBook AI-Voice-Copilot % [K[?2004h[?2004l
+[1m[7m%[27m[1m[0m                                                                                [0m[27m[24m[Jmacbookair@MacBook-Air-MacBook AI-Voice-Copilot % [K[?2004h  fly deploy[?2004l
+[0;32m==> Verifying app config[0m
+Validating /Users/macbookair/Desktop/Laba/AI-Voice-Copilot/fly.toml
+[32m✓[0m Configuration is valid
+[0;32m--> Verified app config[0m
+[0;32m==> Building image[0m
+[?25l[KWaiting for depot builder...
+ [37m🌍[0m[K[F[KWaiting for depot builder...
+ [37m🌎[0m[K[F[KWaiting for depot builder...
+ [37m🌏[0m[K[F[KWaiting for depot builder...
+ [37m🌍[0m[K[F[KWaiting for depot builder...
+ [37m🌎[0m[K[F[KWaiting for depot builder...
+ [37m🌏[0m[K[F[KWaiting for depot builder...
+ [37m🌍[0m[K[F[KWaiting for depot builder...
+ [37m🌎[0m[K[F[KWaiting for depot builder...
+ [37m🌏[0m[K[F[KWaiting for depot builder...
+ [37m🌍[0m[K[F[KWaiting for depot builder...
+ [37m🌎[0m[K[F[KWaiting for depot builder...
+ [37m🌏[0m[K[F[KWaiting for depot builder...
+ [37m🌍[0m[K[F[KWaiting for depot builder...
+ [37m🌎[0m[K[F[KWaiting for depot builder...
+ [37m🌏[0m[K[F[KWaiting for depot builder...
+ [37m🌍[0m[K[F[KWaiting for depot builder...
+ [37m🌎[0m[K[F[KWaiting for depot builder...
+ [37m🌏[0m[K[F[KWaiting for depot builder...
+ [37m🌍[0m[K[F[KWaiting for depot builder...
+ [37m🌎[0m[K[F[KWaiting for depot builder...
+ [37m🌏[0m[K[F[KWaiting for depot builder...
+ [37m🌍[0m[K[F[KWaiting for depot builder...
+ [37m🌎[0m[K[F[KWaiting for depot builder...
+ [37m🌏[0m[K[F[KWaiting for depot builder...
+ [37m🌍[0m[K[F[KWaiting for depot builder...
+ [37m🌎[0m[K[F[KWaiting for depot builder...
+ [37m🌏[0m[K[F[KWaiting for depot builder...
+ [37m🌍[0m[K[F[KWaiting for depot builder...
+ [37m🌎[0m[K[F[KWaiting for depot builder...
+ [37m🌏[0m[K[F[KWaiting for depot builder...
+ [37m🌍[0m[K[F[KWaiting for depot builder...
+ [37m🌎[0m[K[F[KWaiting for depot builder...
+ [37m🌏[0m[K[F[KWaiting for depot builder...
+ [37m🌍[0m[K[F[KWaiting for depot builder...
+ [37m🌎[0m[K[F[KWaiting for depot builder...
+ [37m🌏[0m[K[F[KWaiting for depot builder...
+ [37m🌍[0m[K[F[KWaiting for depot builder...
+ [37m🌎[0m[K[F[KWaiting for depot builder...
+ [37m🌏[0m[K[F[KWaiting for depot builder...
+ [37m🌍[0m[K[F[KWaiting for depot builder...
+ [37m🌎[0m[K[F[KWaiting for depot builder...
+ [37m🌏[0m[K[F[KWaiting for depot builder...
+ [37m🌍[0m[K[F[KWaiting for depot builder...
+ [37m🌎[0m[K[F[KWaiting for depot builder...
+ [37m🌏[0m[K[F[KWaiting for depot builder...
+ [37m🌍[0m[K[F[KWaiting for depot builder...
+ [37m🌎[0m[K[F[KWaiting for depot builder...
+ [37m🌏[0m[K[F[KWaiting for depot builder...
+ [37m🌍[0m[K[F[KWaiting for depot builder...
+ [37m🌎[0m[K[F[KWaiting for depot builder...
+ [37m🌏[0m[K[F[KWaiting for depot builder...
+ [37m🌍[0m[K[F[KWaiting for depot builder...
+ [37m🌎[0m[K[F[KWaiting for depot builder...
+ [37m🌏[0m[?25h[K[F[K[0;32m==> Building image with Depot[0m
+[0;32m--> build:  (​)[0m
+[1A[1B[0G[?25l[+] Building 0.0s (0/1)                                                         
+[?25h[1A[0G[?25l[+] Building 0.1s (0/1)                                                         
+ => [internal] load build definition from Dockerfile                       0.1s
+ => => transferring dockerfile: 67B                                        0.1s
+[?25h[1A[1A[1A[0G[?25l[+] Building 0.3s (0/1)                                                         
+ => [internal] load build definition from Dockerfile                       0.3s
+ => => transferring dockerfile: 318B                                       0.3s
+[?25h[1A[1A[1A[0G[?25l[+] Building 0.4s (0/1)                                                         
+ => [internal] load build definition from Dockerfile                       0.4s
+ => => transferring dockerfile: 322B                                       0.4s
+[?25h[1A[1A[1A[0G[?25l[+] Building 0.6s (1/2)                                                         
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m => [internal] load metadata for docker.io/library/python:3.12-slim        0.2s
+[?25h[1A[1A[1A[1A[0G[?25l[+] Building 0.7s (1/2)                                                         
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[?25h[1A[1A[1A[1A[0G[?25l[+] Building 0.8s (2/2)                                                         
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[?25h[1A[1A[1A[1A[0G[?25l[+] Building 0.9s (2/3)                                                         
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m => [internal] load .dockerignore                                          0.1s
+ => => transferring context:                                               0.1s
+[?25h[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 1.0s (2/3)                                                         
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m => [internal] load .dockerignore                                          0.3s
+ => => transferring context:                                               0.3s
+[?25h[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 1.1s (2/3)                                                         
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m => [internal] load .dockerignore                                          0.3s
+[34m => => transferring context: 2B                                            0.3s
+[0m[?25h[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 1.2s (4/9)                                                         
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[34m => [internal] load .dockerignore                                          0.3s
+[0m[34m => => transferring context: 2B                                            0.3s
+[0m[34m => [1/5] FROM docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => => resolve docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m => [internal] load build context                                          0.2s
+ => => transferring context: 60B                                           0.2s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 1.3s (4/9)                                                         
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[34m => [internal] load .dockerignore                                          0.3s
+[0m[34m => => transferring context: 2B                                            0.3s
+[0m[34m => [1/5] FROM docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => => resolve docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m => [internal] load build context                                          0.3s
+ => => transferring context: 21.50kB                                       0.3s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 1.5s (4/9)                                                         
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[34m => [internal] load .dockerignore                                          0.3s
+[0m[34m => => transferring context: 2B                                            0.3s
+[0m[34m => [1/5] FROM docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => => resolve docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m => [internal] load build context                                          0.5s
+ => => transferring context: 95.19kB                                       0.5s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 1.6s (4/9)                                                         
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[34m => [internal] load .dockerignore                                          0.3s
+[0m[34m => => transferring context: 2B                                            0.3s
+[0m[34m => [1/5] FROM docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => => resolve docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m => [internal] load build context                                          0.6s
+ => => transferring context: 169.31kB                                      0.6s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 1.8s (4/9)                                                         
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[34m => [internal] load .dockerignore                                          0.3s
+[0m[34m => => transferring context: 2B                                            0.3s
+[0m[34m => [1/5] FROM docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => => resolve docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m => [internal] load build context                                          0.8s
+ => => transferring context: 169.31kB                                      0.7s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 1.8s (4/9)                                                         
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[34m => [internal] load .dockerignore                                          0.3s
+[0m[34m => => transferring context: 2B                                            0.3s
+[0m[34m => [1/5] FROM docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => => resolve docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m => [internal] load build context                                          0.8s
+ => => transferring context: 268.91kB                                      0.7s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 1.9s (4/9)                                                         
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[34m => [internal] load .dockerignore                                          0.3s
+[0m[34m => => transferring context: 2B                                            0.3s
+[0m[34m => [1/5] FROM docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => => resolve docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m => [internal] load build context                                          0.9s
+ => => transferring context: 412.78kB                                      0.9s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 2.1s (4/9)                                                         
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[34m => [internal] load .dockerignore                                          0.3s
+[0m[34m => => transferring context: 2B                                            0.3s
+[0m[34m => [1/5] FROM docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => => resolve docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m => [internal] load build context                                          1.0s
+ => => transferring context: 555.39kB                                      1.0s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 2.2s (4/9)                                                         
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[34m => [internal] load .dockerignore                                          0.3s
+[0m[34m => => transferring context: 2B                                            0.3s
+[0m[34m => [1/5] FROM docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => => resolve docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m => [internal] load build context                                          1.2s
+ => => transferring context: 555.39kB                                      1.2s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 2.3s (4/9)                                                         
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[34m => [internal] load .dockerignore                                          0.3s
+[0m[34m => => transferring context: 2B                                            0.3s
+[0m[34m => [1/5] FROM docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => => resolve docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m => [internal] load build context                                          1.2s
+ => => transferring context: 690.90kB                                      1.2s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 2.4s (4/9)                                                         
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[34m => [internal] load .dockerignore                                          0.3s
+[0m[34m => => transferring context: 2B                                            0.3s
+[0m[34m => [1/5] FROM docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => => resolve docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m => [internal] load build context                                          1.4s
+ => => transferring context: 690.90kB                                      1.3s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 2.4s (4/9)                                                         
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[34m => [internal] load .dockerignore                                          0.3s
+[0m[34m => => transferring context: 2B                                            0.3s
+[0m[34m => [1/5] FROM docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => => resolve docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m => [internal] load build context                                          1.4s
+ => => transferring context: 782.69kB                                      1.4s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 2.6s (8/9)                                                         
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[34m => [internal] load .dockerignore                                          0.3s
+[0m[34m => => transferring context: 2B                                            0.3s
+[0m[34m => [1/5] FROM docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => => resolve docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => [internal] load build context                                          1.4s
+[0m[34m => => transferring context: 782.69kB                                      1.4s
+[0m[34m => CACHED [2/5] WORKDIR /app                                              0.0s
+[0m[34m => CACHED [3/5] COPY requirements.txt .                                   0.0s
+[0m[34m => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt        0.0s
+[0m => [5/5] COPY . .                                                         0.2s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 2.7s (8/9)                                                         
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[34m => [internal] load .dockerignore                                          0.3s
+[0m[34m => => transferring context: 2B                                            0.3s
+[0m[34m => [1/5] FROM docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => => resolve docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => [internal] load build context                                          1.4s
+[0m[34m => => transferring context: 782.69kB                                      1.4s
+[0m[34m => CACHED [2/5] WORKDIR /app                                              0.0s
+[0m[34m => CACHED [3/5] COPY requirements.txt .                                   0.0s
+[0m[34m => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt        0.0s
+[0m => [5/5] COPY . .                                                         0.3s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 2.9s (8/9)                                                         
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[34m => [internal] load .dockerignore                                          0.3s
+[0m[34m => => transferring context: 2B                                            0.3s
+[0m[34m => [1/5] FROM docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => => resolve docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => [internal] load build context                                          1.4s
+[0m[34m => => transferring context: 782.69kB                                      1.4s
+[0m[34m => CACHED [2/5] WORKDIR /app                                              0.0s
+[0m[34m => CACHED [3/5] COPY requirements.txt .                                   0.0s
+[0m[34m => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt        0.0s
+[0m => [5/5] COPY . .                                                         0.5s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 3.0s (8/9)                                                         
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[34m => [internal] load .dockerignore                                          0.3s
+[0m[34m => => transferring context: 2B                                            0.3s
+[0m[34m => [1/5] FROM docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => => resolve docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => [internal] load build context                                          1.4s
+[0m[34m => => transferring context: 782.69kB                                      1.4s
+[0m[34m => CACHED [2/5] WORKDIR /app                                              0.0s
+[0m[34m => CACHED [3/5] COPY requirements.txt .                                   0.0s
+[0m[34m => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt        0.0s
+[0m => [5/5] COPY . .                                                         0.6s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 3.2s (8/9)                                                         
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[34m => [internal] load .dockerignore                                          0.3s
+[0m[34m => => transferring context: 2B                                            0.3s
+[0m[34m => [1/5] FROM docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => => resolve docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => [internal] load build context                                          1.4s
+[0m[34m => => transferring context: 782.69kB                                      1.4s
+[0m[34m => CACHED [2/5] WORKDIR /app                                              0.0s
+[0m[34m => CACHED [3/5] COPY requirements.txt .                                   0.0s
+[0m[34m => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt        0.0s
+[0m => [5/5] COPY . .                                                         0.8s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 3.3s (8/9)                                                         
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[34m => [internal] load .dockerignore                                          0.3s
+[0m[34m => => transferring context: 2B                                            0.3s
+[0m[34m => [1/5] FROM docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => => resolve docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => [internal] load build context                                          1.4s
+[0m[34m => => transferring context: 782.69kB                                      1.4s
+[0m[34m => CACHED [2/5] WORKDIR /app                                              0.0s
+[0m[34m => CACHED [3/5] COPY requirements.txt .                                   0.0s
+[0m[34m => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt        0.0s
+[0m => [5/5] COPY . .                                                         0.9s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 3.5s (8/9)                                                         
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[34m => [internal] load .dockerignore                                          0.3s
+[0m[34m => => transferring context: 2B                                            0.3s
+[0m[34m => [1/5] FROM docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => => resolve docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => [internal] load build context                                          1.4s
+[0m[34m => => transferring context: 782.69kB                                      1.4s
+[0m[34m => CACHED [2/5] WORKDIR /app                                              0.0s
+[0m[34m => CACHED [3/5] COPY requirements.txt .                                   0.0s
+[0m[34m => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt        0.0s
+[0m => [5/5] COPY . .                                                         1.1s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 3.6s (8/9)                                                         
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[34m => [internal] load .dockerignore                                          0.3s
+[0m[34m => => transferring context: 2B                                            0.3s
+[0m[34m => [1/5] FROM docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => => resolve docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => [internal] load build context                                          1.4s
+[0m[34m => => transferring context: 782.69kB                                      1.4s
+[0m[34m => CACHED [2/5] WORKDIR /app                                              0.0s
+[0m[34m => CACHED [3/5] COPY requirements.txt .                                   0.0s
+[0m[34m => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt        0.0s
+[0m => [5/5] COPY . .                                                         1.2s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 3.8s (8/9)                                                         
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[34m => [internal] load .dockerignore                                          0.3s
+[0m[34m => => transferring context: 2B                                            0.3s
+[0m[34m => [1/5] FROM docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => => resolve docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => [internal] load build context                                          1.4s
+[0m[34m => => transferring context: 782.69kB                                      1.4s
+[0m[34m => CACHED [2/5] WORKDIR /app                                              0.0s
+[0m[34m => CACHED [3/5] COPY requirements.txt .                                   0.0s
+[0m[34m => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt        0.0s
+[0m => [5/5] COPY . .                                                         1.4s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 3.9s (8/9)                                                         
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[34m => [internal] load .dockerignore                                          0.3s
+[0m[34m => => transferring context: 2B                                            0.3s
+[0m[34m => [1/5] FROM docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => => resolve docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => [internal] load build context                                          1.4s
+[0m[34m => => transferring context: 782.69kB                                      1.4s
+[0m[34m => CACHED [2/5] WORKDIR /app                                              0.0s
+[0m[34m => CACHED [3/5] COPY requirements.txt .                                   0.0s
+[0m[34m => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt        0.0s
+[0m => [5/5] COPY . .                                                         1.5s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 4.1s (9/9)                                                         
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[34m => [internal] load .dockerignore                                          0.3s
+[0m[34m => => transferring context: 2B                                            0.3s
+[0m[34m => [1/5] FROM docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => => resolve docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => [internal] load build context                                          1.4s
+[0m[34m => => transferring context: 782.69kB                                      1.4s
+[0m[34m => CACHED [2/5] WORKDIR /app                                              0.0s
+[0m[34m => CACHED [3/5] COPY requirements.txt .                                   0.0s
+[0m[34m => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt        0.0s
+[0m[34m => [5/5] COPY . .                                                         1.6s
+[0m[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 4.2s (9/10)                                                        
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[34m => [internal] load .dockerignore                                          0.3s
+[0m[34m => => transferring context: 2B                                            0.3s
+[0m[34m => [1/5] FROM docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => => resolve docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => [internal] load build context                                          1.4s
+[0m[34m => => transferring context: 782.69kB                                      1.4s
+[0m[34m => CACHED [2/5] WORKDIR /app                                              0.0s
+[0m[34m => CACHED [3/5] COPY requirements.txt .                                   0.0s
+[0m[34m => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt        0.0s
+[0m[34m => [5/5] COPY . .                                                         1.6s
+[0m => exporting to image                                                     0.2s
+ => => exporting layers                                                    0.2s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 4.4s (9/10)                                                        
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[34m => [internal] load .dockerignore                                          0.3s
+[0m[34m => => transferring context: 2B                                            0.3s
+[0m[34m => [1/5] FROM docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => => resolve docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => [internal] load build context                                          1.4s
+[0m[34m => => transferring context: 782.69kB                                      1.4s
+[0m[34m => CACHED [2/5] WORKDIR /app                                              0.0s
+[0m[34m => CACHED [3/5] COPY requirements.txt .                                   0.0s
+[0m[34m => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt        0.0s
+[0m[34m => [5/5] COPY . .                                                         1.6s
+[0m => exporting to image                                                     0.3s
+ => => exporting layers                                                    0.3s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 4.5s (9/10)                                                        
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[34m => [internal] load .dockerignore                                          0.3s
+[0m[34m => => transferring context: 2B                                            0.3s
+[0m[34m => [1/5] FROM docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => => resolve docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => [internal] load build context                                          1.4s
+[0m[34m => => transferring context: 782.69kB                                      1.4s
+[0m[34m => CACHED [2/5] WORKDIR /app                                              0.0s
+[0m[34m => CACHED [3/5] COPY requirements.txt .                                   0.0s
+[0m[34m => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt        0.0s
+[0m[34m => [5/5] COPY . .                                                         1.6s
+[0m => exporting to image                                                     0.5s
+ => => exporting layers                                                    0.5s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 4.7s (9/10)                                                        
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[34m => [internal] load .dockerignore                                          0.3s
+[0m[34m => => transferring context: 2B                                            0.3s
+[0m[34m => [1/5] FROM docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => => resolve docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => [internal] load build context                                          1.4s
+[0m[34m => => transferring context: 782.69kB                                      1.4s
+[0m[34m => CACHED [2/5] WORKDIR /app                                              0.0s
+[0m[34m => CACHED [3/5] COPY requirements.txt .                                   0.0s
+[0m[34m => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt        0.0s
+[0m[34m => [5/5] COPY . .                                                         1.6s
+[0m => exporting to image                                                     0.6s
+ => => exporting layers                                                    0.6s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 4.8s (9/10)                                                        
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[34m => [internal] load .dockerignore                                          0.3s
+[0m[34m => => transferring context: 2B                                            0.3s
+[0m[34m => [1/5] FROM docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => => resolve docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => [internal] load build context                                          1.4s
+[0m[34m => => transferring context: 782.69kB                                      1.4s
+[0m[34m => CACHED [2/5] WORKDIR /app                                              0.0s
+[0m[34m => CACHED [3/5] COPY requirements.txt .                                   0.0s
+[0m[34m => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt        0.0s
+[0m[34m => [5/5] COPY . .                                                         1.6s
+[0m => exporting to image                                                     0.8s
+ => => exporting layers                                                    0.8s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 5.0s (9/10)                                                        
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[34m => [internal] load .dockerignore                                          0.3s
+[0m[34m => => transferring context: 2B                                            0.3s
+[0m[34m => [1/5] FROM docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => => resolve docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => [internal] load build context                                          1.4s
+[0m[34m => => transferring context: 782.69kB                                      1.4s
+[0m[34m => CACHED [2/5] WORKDIR /app                                              0.0s
+[0m[34m => CACHED [3/5] COPY requirements.txt .                                   0.0s
+[0m[34m => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt        0.0s
+[0m[34m => [5/5] COPY . .                                                         1.6s
+[0m => exporting to image                                                     0.9s
+ => => exporting layers                                                    0.9s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 5.1s (9/10)                                                        
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[34m => [internal] load .dockerignore                                          0.3s
+[0m[34m => => transferring context: 2B                                            0.3s
+[0m[34m => [1/5] FROM docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => => resolve docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => [internal] load build context                                          1.4s
+[0m[34m => => transferring context: 782.69kB                                      1.4s
+[0m[34m => CACHED [2/5] WORKDIR /app                                              0.0s
+[0m[34m => CACHED [3/5] COPY requirements.txt .                                   0.0s
+[0m[34m => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt        0.0s
+[0m[34m => [5/5] COPY . .                                                         1.6s
+[0m => exporting to image                                                     1.1s
+ => => exporting layers                                                    1.1s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 5.3s (9/10)                                                        
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[34m => [internal] load .dockerignore                                          0.3s
+[0m[34m => => transferring context: 2B                                            0.3s
+[0m[34m => [1/5] FROM docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => => resolve docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => [internal] load build context                                          1.4s
+[0m[34m => => transferring context: 782.69kB                                      1.4s
+[0m[34m => CACHED [2/5] WORKDIR /app                                              0.0s
+[0m[34m => CACHED [3/5] COPY requirements.txt .                                   0.0s
+[0m[34m => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt        0.0s
+[0m[34m => [5/5] COPY . .                                                         1.6s
+[0m => exporting to image                                                     1.2s
+ => => exporting layers                                                    1.2s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 5.4s (9/10)                                                        
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[34m => [internal] load .dockerignore                                          0.3s
+[0m[34m => => transferring context: 2B                                            0.3s
+[0m[34m => [1/5] FROM docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => => resolve docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => [internal] load build context                                          1.4s
+[0m[34m => => transferring context: 782.69kB                                      1.4s
+[0m[34m => CACHED [2/5] WORKDIR /app                                              0.0s
+[0m[34m => CACHED [3/5] COPY requirements.txt .                                   0.0s
+[0m[34m => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt        0.0s
+[0m[34m => [5/5] COPY . .                                                         1.6s
+[0m => exporting to image                                                     1.4s
+ => => exporting layers                                                    1.4s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 5.6s (9/10)                                                        
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[34m => [internal] load .dockerignore                                          0.3s
+[0m[34m => => transferring context: 2B                                            0.3s
+[0m[34m => [1/5] FROM docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => => resolve docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => [internal] load build context                                          1.4s
+[0m[34m => => transferring context: 782.69kB                                      1.4s
+[0m[34m => CACHED [2/5] WORKDIR /app                                              0.0s
+[0m[34m => CACHED [3/5] COPY requirements.txt .                                   0.0s
+[0m[34m => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt        0.0s
+[0m[34m => [5/5] COPY . .                                                         1.6s
+[0m => exporting to image                                                     1.5s
+ => => exporting layers                                                    1.5s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 5.7s (9/10)                                                        
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[34m => [internal] load .dockerignore                                          0.3s
+[0m[34m => => transferring context: 2B                                            0.3s
+[0m[34m => [1/5] FROM docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => => resolve docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => [internal] load build context                                          1.4s
+[0m[34m => => transferring context: 782.69kB                                      1.4s
+[0m[34m => CACHED [2/5] WORKDIR /app                                              0.0s
+[0m[34m => CACHED [3/5] COPY requirements.txt .                                   0.0s
+[0m[34m => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt        0.0s
+[0m[34m => [5/5] COPY . .                                                         1.6s
+[0m => exporting to image                                                     1.7s
+ => => exporting layers                                                    1.7s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 5.9s (9/10)                                                        
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[34m => [internal] load .dockerignore                                          0.3s
+[0m[34m => => transferring context: 2B                                            0.3s
+[0m[34m => [1/5] FROM docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => => resolve docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => [internal] load build context                                          1.4s
+[0m[34m => => transferring context: 782.69kB                                      1.4s
+[0m[34m => CACHED [2/5] WORKDIR /app                                              0.0s
+[0m[34m => CACHED [3/5] COPY requirements.txt .                                   0.0s
+[0m[34m => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt        0.0s
+[0m[34m => [5/5] COPY . .                                                         1.6s
+[0m => exporting to image                                                     1.8s
+ => => exporting layers                                                    1.8s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 6.0s (9/10)                                                        
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[34m => [internal] load .dockerignore                                          0.3s
+[0m[34m => => transferring context: 2B                                            0.3s
+[0m[34m => [1/5] FROM docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => => resolve docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => [internal] load build context                                          1.4s
+[0m[34m => => transferring context: 782.69kB                                      1.4s
+[0m[34m => CACHED [2/5] WORKDIR /app                                              0.0s
+[0m[34m => CACHED [3/5] COPY requirements.txt .                                   0.0s
+[0m[34m => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt        0.0s
+[0m[34m => [5/5] COPY . .                                                         1.6s
+[0m => exporting to image                                                     2.0s
+ => => exporting layers                                                    2.0s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 6.2s (9/10)                                                        
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[34m => [internal] load .dockerignore                                          0.3s
+[0m[34m => => transferring context: 2B                                            0.3s
+[0m[34m => [1/5] FROM docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => => resolve docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => [internal] load build context                                          1.4s
+[0m[34m => => transferring context: 782.69kB                                      1.4s
+[0m[34m => CACHED [2/5] WORKDIR /app                                              0.0s
+[0m[34m => CACHED [3/5] COPY requirements.txt .                                   0.0s
+[0m[34m => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt        0.0s
+[0m[34m => [5/5] COPY . .                                                         1.6s
+[0m => exporting to image                                                     2.1s
+ => => exporting layers                                                    2.1s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 6.3s (9/10)                                                        
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[34m => [internal] load .dockerignore                                          0.3s
+[0m[34m => => transferring context: 2B                                            0.3s
+[0m[34m => [1/5] FROM docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => => resolve docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => [internal] load build context                                          1.4s
+[0m[34m => => transferring context: 782.69kB                                      1.4s
+[0m[34m => CACHED [2/5] WORKDIR /app                                              0.0s
+[0m[34m => CACHED [3/5] COPY requirements.txt .                                   0.0s
+[0m[34m => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt        0.0s
+[0m[34m => [5/5] COPY . .                                                         1.6s
+[0m => exporting to image                                                     2.2s
+[34m => => exporting layers                                                    2.2s
+[0m[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 6.5s (9/10)                                                        
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[34m => [internal] load .dockerignore                                          0.3s
+[0m[34m => => transferring context: 2B                                            0.3s
+[0m[34m => [1/5] FROM docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => => resolve docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => [internal] load build context                                          1.4s
+[0m[34m => => transferring context: 782.69kB                                      1.4s
+[0m[34m => CACHED [2/5] WORKDIR /app                                              0.0s
+[0m[34m => CACHED [3/5] COPY requirements.txt .                                   0.0s
+[0m[34m => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt        0.0s
+[0m[34m => [5/5] COPY . .                                                         1.6s
+[0m => exporting to image                                                     2.4s
+[34m => => exporting layers                                                    2.2s
+[0m[34m => => exporting manifest sha256:7cb46b0e3cf10dfd59b59c33eddbb706ca681eb0  0.0s
+[0m[34m => => exporting config sha256:0a60661d6acb0b2eba3f9bf47bc0ff8be94734eb25  0.0s
+[0m => => pushing layers for registry.fly.io/ai-voice-copilot:deployment-01K  0.1s
+ => => pushing layer sha256:0a60661d6acb0b2eba3f9bf47bc0ff8be94734eb256c2  0.1s
+ => => pushing layer sha256:42641f180f9b50b2a837f1728ffad4edb9b5d9fa4b350  0.1s
+[34m => => pushing layer sha256:60296851ed7dcc6acdd8d8580d37d3ae6b6d904e30639  0.1s
+[0m => => pushing layer sha256:b163db4c44811c177a6d85d8ffc09c8d65e394c5f0471  0.1s
+ => => pushing layer sha256:aeb36cb422abdd0c4cfaab5ad6d996bbd850527c1e975  0.1s
+ => => pushing layer sha256:0bc0e85e159032bf16c7baf66e80e531b8c713cad3604  0.1s
+ => => pushing layer sha256:dc98622cdf93028fdcbf3bf4bcf8cd0a30101fb8d99c4  0.1s
+ => => pushing layer sha256:c396371ff1e5c067cf85dfe70f61bbb7f74f95a0547ea  0.1s
+ => => pushing layer sha256:fc664ce9d425c38ccb3551b937f43d801a1881ca5db5a  0.1s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 6.6s (9/10)                                                        
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[34m => [internal] load .dockerignore                                          0.3s
+[0m[34m => => transferring context: 2B                                            0.3s
+[0m[34m => [1/5] FROM docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => => resolve docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => [internal] load build context                                          1.4s
+[0m[34m => => transferring context: 782.69kB                                      1.4s
+[0m[34m => CACHED [2/5] WORKDIR /app                                              0.0s
+[0m[34m => CACHED [3/5] COPY requirements.txt .                                   0.0s
+[0m[34m => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt        0.0s
+[0m[34m => [5/5] COPY . .                                                         1.6s
+[0m => exporting to image                                                     2.6s
+[34m => => exporting layers                                                    2.2s
+[0m[34m => => exporting manifest sha256:7cb46b0e3cf10dfd59b59c33eddbb706ca681eb0  0.0s
+[0m[34m => => exporting config sha256:0a60661d6acb0b2eba3f9bf47bc0ff8be94734eb25  0.0s
+[0m => => pushing layers for registry.fly.io/ai-voice-copilot:deployment-01K  0.3s
+ => => pushing layer sha256:0a60661d6acb0b2eba3f9bf47bc0ff8be94734eb256c2  0.3s
+ => => pushing layer sha256:42641f180f9b50b2a837f1728ffad4edb9b5d9fa4b350  0.3s
+[34m => => pushing layer sha256:60296851ed7dcc6acdd8d8580d37d3ae6b6d904e30639  0.1s
+[0m => => pushing layer sha256:b163db4c44811c177a6d85d8ffc09c8d65e394c5f0471  0.3s
+ => => pushing layer sha256:aeb36cb422abdd0c4cfaab5ad6d996bbd850527c1e975  0.3s
+ => => pushing layer sha256:0bc0e85e159032bf16c7baf66e80e531b8c713cad3604  0.3s
+ => => pushing layer sha256:dc98622cdf93028fdcbf3bf4bcf8cd0a30101fb8d99c4  0.3s
+ => => pushing layer sha256:c396371ff1e5c067cf85dfe70f61bbb7f74f95a0547ea  0.3s
+ => => pushing layer sha256:fc664ce9d425c38ccb3551b937f43d801a1881ca5db5a  0.3s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 6.8s (9/10)                                                        
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[34m => [internal] load .dockerignore                                          0.3s
+[0m[34m => => transferring context: 2B                                            0.3s
+[0m[34m => [1/5] FROM docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => => resolve docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => [internal] load build context                                          1.4s
+[0m[34m => => transferring context: 782.69kB                                      1.4s
+[0m[34m => CACHED [2/5] WORKDIR /app                                              0.0s
+[0m[34m => CACHED [3/5] COPY requirements.txt .                                   0.0s
+[0m[34m => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt        0.0s
+[0m[34m => [5/5] COPY . .                                                         1.6s
+[0m => exporting to image                                                     2.7s
+[34m => => exporting layers                                                    2.2s
+[0m[34m => => exporting manifest sha256:7cb46b0e3cf10dfd59b59c33eddbb706ca681eb0  0.0s
+[0m[34m => => exporting config sha256:0a60661d6acb0b2eba3f9bf47bc0ff8be94734eb25  0.0s
+[0m => => pushing layers for registry.fly.io/ai-voice-copilot:deployment-01K  0.5s
+ => => pushing layer sha256:0a60661d6acb0b2eba3f9bf47bc0ff8be94734eb256c2  0.5s
+ => => pushing layer sha256:42641f180f9b50b2a837f1728ffad4edb9b5d9fa4b350  0.5s
+[34m => => pushing layer sha256:60296851ed7dcc6acdd8d8580d37d3ae6b6d904e30639  0.1s
+[0m => => pushing layer sha256:b163db4c44811c177a6d85d8ffc09c8d65e394c5f0471  0.4s
+ => => pushing layer sha256:aeb36cb422abdd0c4cfaab5ad6d996bbd850527c1e975  0.4s
+ => => pushing layer sha256:0bc0e85e159032bf16c7baf66e80e531b8c713cad3604  0.4s
+ => => pushing layer sha256:dc98622cdf93028fdcbf3bf4bcf8cd0a30101fb8d99c4  0.4s
+ => => pushing layer sha256:c396371ff1e5c067cf85dfe70f61bbb7f74f95a0547ea  0.4s
+ => => pushing layer sha256:fc664ce9d425c38ccb3551b937f43d801a1881ca5db5a  0.4s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 6.9s (9/10)                                                        
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[34m => [internal] load .dockerignore                                          0.3s
+[0m[34m => => transferring context: 2B                                            0.3s
+[0m[34m => [1/5] FROM docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => => resolve docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => [internal] load build context                                          1.4s
+[0m[34m => => transferring context: 782.69kB                                      1.4s
+[0m[34m => CACHED [2/5] WORKDIR /app                                              0.0s
+[0m[34m => CACHED [3/5] COPY requirements.txt .                                   0.0s
+[0m[34m => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt        0.0s
+[0m[34m => [5/5] COPY . .                                                         1.6s
+[0m => exporting to image                                                     2.8s
+[34m => => exporting layers                                                    2.2s
+[0m[34m => => exporting manifest sha256:7cb46b0e3cf10dfd59b59c33eddbb706ca681eb0  0.0s
+[0m[34m => => exporting config sha256:0a60661d6acb0b2eba3f9bf47bc0ff8be94734eb25  0.0s
+[0m => => pushing layers for registry.fly.io/ai-voice-copilot:deployment-01K  0.5s
+ => => pushing layer sha256:0a60661d6acb0b2eba3f9bf47bc0ff8be94734eb256c2  0.5s
+ => => pushing layer sha256:42641f180f9b50b2a837f1728ffad4edb9b5d9fa4b350  0.5s
+[34m => => pushing layer sha256:60296851ed7dcc6acdd8d8580d37d3ae6b6d904e30639  0.1s
+[0m[34m => => pushing layer sha256:b163db4c44811c177a6d85d8ffc09c8d65e394c5f0471  0.5s
+[0m => => pushing layer sha256:aeb36cb422abdd0c4cfaab5ad6d996bbd850527c1e975  0.5s
+ => => pushing layer sha256:0bc0e85e159032bf16c7baf66e80e531b8c713cad3604  0.5s
+ => => pushing layer sha256:dc98622cdf93028fdcbf3bf4bcf8cd0a30101fb8d99c4  0.5s
+ => => pushing layer sha256:c396371ff1e5c067cf85dfe70f61bbb7f74f95a0547ea  0.5s
+ => => pushing layer sha256:fc664ce9d425c38ccb3551b937f43d801a1881ca5db5a  0.5s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 7.0s (9/10)                                                        
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[34m => [internal] load .dockerignore                                          0.3s
+[0m[34m => => transferring context: 2B                                            0.3s
+[0m[34m => [1/5] FROM docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => => resolve docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => [internal] load build context                                          1.4s
+[0m[34m => => transferring context: 782.69kB                                      1.4s
+[0m[34m => CACHED [2/5] WORKDIR /app                                              0.0s
+[0m[34m => CACHED [3/5] COPY requirements.txt .                                   0.0s
+[0m[34m => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt        0.0s
+[0m[34m => [5/5] COPY . .                                                         1.6s
+[0m => exporting to image                                                     2.9s
+[34m => => exporting layers                                                    2.2s
+[0m[34m => => exporting manifest sha256:7cb46b0e3cf10dfd59b59c33eddbb706ca681eb0  0.0s
+[0m[34m => => exporting config sha256:0a60661d6acb0b2eba3f9bf47bc0ff8be94734eb25  0.0s
+[0m => => pushing layers for registry.fly.io/ai-voice-copilot:deployment-01K  0.7s
+ => => pushing layer sha256:0a60661d6acb0b2eba3f9bf47bc0ff8be94734eb256c2  0.7s
+ => => pushing layer sha256:42641f180f9b50b2a837f1728ffad4edb9b5d9fa4b350  0.7s
+[34m => => pushing layer sha256:60296851ed7dcc6acdd8d8580d37d3ae6b6d904e30639  0.1s
+[0m[34m => => pushing layer sha256:b163db4c44811c177a6d85d8ffc09c8d65e394c5f0471  0.5s
+[0m => => pushing layer sha256:aeb36cb422abdd0c4cfaab5ad6d996bbd850527c1e975  0.7s
+[34m => => pushing layer sha256:0bc0e85e159032bf16c7baf66e80e531b8c713cad3604  0.7s
+[0m => => pushing layer sha256:dc98622cdf93028fdcbf3bf4bcf8cd0a30101fb8d99c4  0.7s
+ => => pushing layer sha256:c396371ff1e5c067cf85dfe70f61bbb7f74f95a0547ea  0.7s
+ => => pushing layer sha256:fc664ce9d425c38ccb3551b937f43d801a1881ca5db5a  0.7s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 7.2s (9/10)                                                        
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[34m => [internal] load .dockerignore                                          0.3s
+[0m[34m => => transferring context: 2B                                            0.3s
+[0m[34m => [1/5] FROM docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => => resolve docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => [internal] load build context                                          1.4s
+[0m[34m => => transferring context: 782.69kB                                      1.4s
+[0m[34m => CACHED [2/5] WORKDIR /app                                              0.0s
+[0m[34m => CACHED [3/5] COPY requirements.txt .                                   0.0s
+[0m[34m => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt        0.0s
+[0m[34m => [5/5] COPY . .                                                         1.6s
+[0m => exporting to image                                                     3.1s
+[34m => => exporting layers                                                    2.2s
+[0m[34m => => exporting manifest sha256:7cb46b0e3cf10dfd59b59c33eddbb706ca681eb0  0.0s
+[0m[34m => => exporting config sha256:0a60661d6acb0b2eba3f9bf47bc0ff8be94734eb25  0.0s
+[0m => => pushing layers for registry.fly.io/ai-voice-copilot:deployment-01K  0.8s
+ => => pushing layer sha256:0a60661d6acb0b2eba3f9bf47bc0ff8be94734eb256c2  0.8s
+ => => pushing layer sha256:42641f180f9b50b2a837f1728ffad4edb9b5d9fa4b350  0.8s
+[34m => => pushing layer sha256:60296851ed7dcc6acdd8d8580d37d3ae6b6d904e30639  0.1s
+[0m[34m => => pushing layer sha256:b163db4c44811c177a6d85d8ffc09c8d65e394c5f0471  0.5s
+[0m[34m => => pushing layer sha256:aeb36cb422abdd0c4cfaab5ad6d996bbd850527c1e975  0.8s
+[0m[34m => => pushing layer sha256:0bc0e85e159032bf16c7baf66e80e531b8c713cad3604  0.7s
+[0m => => pushing layer sha256:dc98622cdf93028fdcbf3bf4bcf8cd0a30101fb8d99c4  0.8s
+ => => pushing layer sha256:c396371ff1e5c067cf85dfe70f61bbb7f74f95a0547ea  0.8s
+ => => pushing layer sha256:fc664ce9d425c38ccb3551b937f43d801a1881ca5db5a  0.8s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 7.3s (9/10)                                                        
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[34m => [internal] load .dockerignore                                          0.3s
+[0m[34m => => transferring context: 2B                                            0.3s
+[0m[34m => [1/5] FROM docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => => resolve docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => [internal] load build context                                          1.4s
+[0m[34m => => transferring context: 782.69kB                                      1.4s
+[0m[34m => CACHED [2/5] WORKDIR /app                                              0.0s
+[0m[34m => CACHED [3/5] COPY requirements.txt .                                   0.0s
+[0m[34m => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt        0.0s
+[0m[34m => [5/5] COPY . .                                                         1.6s
+[0m => exporting to image                                                     3.2s
+[34m => => exporting layers                                                    2.2s
+[0m[34m => => exporting manifest sha256:7cb46b0e3cf10dfd59b59c33eddbb706ca681eb0  0.0s
+[0m[34m => => exporting config sha256:0a60661d6acb0b2eba3f9bf47bc0ff8be94734eb25  0.0s
+[0m => => pushing layers for registry.fly.io/ai-voice-copilot:deployment-01K  1.0s
+ => => pushing layer sha256:0a60661d6acb0b2eba3f9bf47bc0ff8be94734eb256c2  1.0s
+ => => pushing layer sha256:42641f180f9b50b2a837f1728ffad4edb9b5d9fa4b350  1.0s
+[34m => => pushing layer sha256:60296851ed7dcc6acdd8d8580d37d3ae6b6d904e30639  0.1s
+[0m[34m => => pushing layer sha256:b163db4c44811c177a6d85d8ffc09c8d65e394c5f0471  0.5s
+[0m[34m => => pushing layer sha256:aeb36cb422abdd0c4cfaab5ad6d996bbd850527c1e975  0.8s
+[0m[34m => => pushing layer sha256:0bc0e85e159032bf16c7baf66e80e531b8c713cad3604  0.7s
+[0m => => pushing layer sha256:dc98622cdf93028fdcbf3bf4bcf8cd0a30101fb8d99c4  1.0s
+ => => pushing layer sha256:c396371ff1e5c067cf85dfe70f61bbb7f74f95a0547ea  1.0s
+ => => pushing layer sha256:fc664ce9d425c38ccb3551b937f43d801a1881ca5db5a  1.0s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 7.4s (9/10)                                                        
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[34m => [internal] load .dockerignore                                          0.3s
+[0m[34m => => transferring context: 2B                                            0.3s
+[0m[34m => [1/5] FROM docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => => resolve docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => [internal] load build context                                          1.4s
+[0m[34m => => transferring context: 782.69kB                                      1.4s
+[0m[34m => CACHED [2/5] WORKDIR /app                                              0.0s
+[0m[34m => CACHED [3/5] COPY requirements.txt .                                   0.0s
+[0m[34m => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt        0.0s
+[0m[34m => [5/5] COPY . .                                                         1.6s
+[0m => exporting to image                                                     3.4s
+[34m => => exporting layers                                                    2.2s
+[0m[34m => => exporting manifest sha256:7cb46b0e3cf10dfd59b59c33eddbb706ca681eb0  0.0s
+[0m[34m => => exporting config sha256:0a60661d6acb0b2eba3f9bf47bc0ff8be94734eb25  0.0s
+[0m => => pushing layers for registry.fly.io/ai-voice-copilot:deployment-01K  1.1s
+ => => pushing layer sha256:0a60661d6acb0b2eba3f9bf47bc0ff8be94734eb256c2  1.1s
+[34m => => pushing layer sha256:42641f180f9b50b2a837f1728ffad4edb9b5d9fa4b350  1.1s
+[0m[34m => => pushing layer sha256:60296851ed7dcc6acdd8d8580d37d3ae6b6d904e30639  0.1s
+[0m[34m => => pushing layer sha256:b163db4c44811c177a6d85d8ffc09c8d65e394c5f0471  0.5s
+[0m[34m => => pushing layer sha256:aeb36cb422abdd0c4cfaab5ad6d996bbd850527c1e975  0.8s
+[0m[34m => => pushing layer sha256:0bc0e85e159032bf16c7baf66e80e531b8c713cad3604  0.7s
+[0m => => pushing layer sha256:dc98622cdf93028fdcbf3bf4bcf8cd0a30101fb8d99c4  1.1s
+ => => pushing layer sha256:c396371ff1e5c067cf85dfe70f61bbb7f74f95a0547ea  1.1s
+ => => pushing layer sha256:fc664ce9d425c38ccb3551b937f43d801a1881ca5db5a  1.1s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 7.6s (9/10)                                                        
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[34m => [internal] load .dockerignore                                          0.3s
+[0m[34m => => transferring context: 2B                                            0.3s
+[0m[34m => [1/5] FROM docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => => resolve docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => [internal] load build context                                          1.4s
+[0m[34m => => transferring context: 782.69kB                                      1.4s
+[0m[34m => CACHED [2/5] WORKDIR /app                                              0.0s
+[0m[34m => CACHED [3/5] COPY requirements.txt .                                   0.0s
+[0m[34m => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt        0.0s
+[0m[34m => [5/5] COPY . .                                                         1.6s
+[0m => exporting to image                                                     3.5s
+[34m => => exporting layers                                                    2.2s
+[0m[34m => => exporting manifest sha256:7cb46b0e3cf10dfd59b59c33eddbb706ca681eb0  0.0s
+[0m[34m => => exporting config sha256:0a60661d6acb0b2eba3f9bf47bc0ff8be94734eb25  0.0s
+[0m => => pushing layers for registry.fly.io/ai-voice-copilot:deployment-01K  1.2s
+ => => pushing layer sha256:0a60661d6acb0b2eba3f9bf47bc0ff8be94734eb256c2  1.2s
+[34m => => pushing layer sha256:42641f180f9b50b2a837f1728ffad4edb9b5d9fa4b350  1.1s
+[0m[34m => => pushing layer sha256:60296851ed7dcc6acdd8d8580d37d3ae6b6d904e30639  0.1s
+[0m[34m => => pushing layer sha256:b163db4c44811c177a6d85d8ffc09c8d65e394c5f0471  0.5s
+[0m[34m => => pushing layer sha256:aeb36cb422abdd0c4cfaab5ad6d996bbd850527c1e975  0.8s
+[0m[34m => => pushing layer sha256:0bc0e85e159032bf16c7baf66e80e531b8c713cad3604  0.7s
+[0m => => pushing layer sha256:dc98622cdf93028fdcbf3bf4bcf8cd0a30101fb8d99c4  1.2s
+[34m => => pushing layer sha256:c396371ff1e5c067cf85dfe70f61bbb7f74f95a0547ea  1.2s
+[0m => => pushing layer sha256:fc664ce9d425c38ccb3551b937f43d801a1881ca5db5a  1.2s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 7.7s (9/10)                                                        
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[34m => [internal] load .dockerignore                                          0.3s
+[0m[34m => => transferring context: 2B                                            0.3s
+[0m[34m => [1/5] FROM docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => => resolve docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => [internal] load build context                                          1.4s
+[0m[34m => => transferring context: 782.69kB                                      1.4s
+[0m[34m => CACHED [2/5] WORKDIR /app                                              0.0s
+[0m[34m => CACHED [3/5] COPY requirements.txt .                                   0.0s
+[0m[34m => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt        0.0s
+[0m[34m => [5/5] COPY . .                                                         1.6s
+[0m => exporting to image                                                     3.6s
+[34m => => exporting layers                                                    2.2s
+[0m[34m => => exporting manifest sha256:7cb46b0e3cf10dfd59b59c33eddbb706ca681eb0  0.0s
+[0m[34m => => exporting config sha256:0a60661d6acb0b2eba3f9bf47bc0ff8be94734eb25  0.0s
+[0m => => pushing layers for registry.fly.io/ai-voice-copilot:deployment-01K  1.3s
+[34m => => pushing layer sha256:0a60661d6acb0b2eba3f9bf47bc0ff8be94734eb256c2  1.3s
+[0m[34m => => pushing layer sha256:42641f180f9b50b2a837f1728ffad4edb9b5d9fa4b350  1.1s
+[0m[34m => => pushing layer sha256:60296851ed7dcc6acdd8d8580d37d3ae6b6d904e30639  0.1s
+[0m[34m => => pushing layer sha256:b163db4c44811c177a6d85d8ffc09c8d65e394c5f0471  0.5s
+[0m[34m => => pushing layer sha256:aeb36cb422abdd0c4cfaab5ad6d996bbd850527c1e975  0.8s
+[0m[34m => => pushing layer sha256:0bc0e85e159032bf16c7baf66e80e531b8c713cad3604  0.7s
+[0m[34m => => pushing layer sha256:dc98622cdf93028fdcbf3bf4bcf8cd0a30101fb8d99c4  1.2s
+[0m[34m => => pushing layer sha256:c396371ff1e5c067cf85dfe70f61bbb7f74f95a0547ea  1.2s
+[0m => => pushing layer sha256:fc664ce9d425c38ccb3551b937f43d801a1881ca5db5a  1.3s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 7.9s (9/10)                                                        
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[34m => [internal] load .dockerignore                                          0.3s
+[0m[34m => => transferring context: 2B                                            0.3s
+[0m[34m => [1/5] FROM docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => => resolve docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => [internal] load build context                                          1.4s
+[0m[34m => => transferring context: 782.69kB                                      1.4s
+[0m[34m => CACHED [2/5] WORKDIR /app                                              0.0s
+[0m[34m => CACHED [3/5] COPY requirements.txt .                                   0.0s
+[0m[34m => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt        0.0s
+[0m[34m => [5/5] COPY . .                                                         1.6s
+[0m => exporting to image                                                     3.8s
+[34m => => exporting layers                                                    2.2s
+[0m[34m => => exporting manifest sha256:7cb46b0e3cf10dfd59b59c33eddbb706ca681eb0  0.0s
+[0m[34m => => exporting config sha256:0a60661d6acb0b2eba3f9bf47bc0ff8be94734eb25  0.0s
+[0m[34m => => pushing layers for registry.fly.io/ai-voice-copilot:deployment-01K  1.4s
+[0m[34m => => pushing layer sha256:0a60661d6acb0b2eba3f9bf47bc0ff8be94734eb256c2  1.3s
+[0m[34m => => pushing layer sha256:42641f180f9b50b2a837f1728ffad4edb9b5d9fa4b350  1.1s
+[0m[34m => => pushing layer sha256:60296851ed7dcc6acdd8d8580d37d3ae6b6d904e30639  0.1s
+[0m[34m => => pushing layer sha256:b163db4c44811c177a6d85d8ffc09c8d65e394c5f0471  0.5s
+[0m[34m => => pushing layer sha256:aeb36cb422abdd0c4cfaab5ad6d996bbd850527c1e975  0.8s
+[0m[34m => => pushing layer sha256:0bc0e85e159032bf16c7baf66e80e531b8c713cad3604  0.7s
+[0m[34m => => pushing layer sha256:dc98622cdf93028fdcbf3bf4bcf8cd0a30101fb8d99c4  1.2s
+[0m[34m => => pushing layer sha256:c396371ff1e5c067cf85dfe70f61bbb7f74f95a0547ea  1.2s
+[0m[34m => => pushing layer sha256:fc664ce9d425c38ccb3551b937f43d801a1881ca5db5a  1.4s
+[0m[34m => => pushing manifest for registry.fly.io/ai-voice-copilot:deployment-0  0.1s
+[0m[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 8.0s (10/10)                                                       
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[34m => [internal] load .dockerignore                                          0.3s
+[0m[34m => => transferring context: 2B                                            0.3s
+[0m[34m => [1/5] FROM docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => => resolve docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => [internal] load build context                                          1.4s
+[0m[34m => => transferring context: 782.69kB                                      1.4s
+[0m[34m => CACHED [2/5] WORKDIR /app                                              0.0s
+[0m[34m => CACHED [3/5] COPY requirements.txt .                                   0.0s
+[0m[34m => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt        0.0s
+[0m[34m => [5/5] COPY . .                                                         1.6s
+[0m[34m => exporting to image                                                     3.8s
+[0m[34m => => exporting layers                                                    2.2s
+[0m[34m => => exporting manifest sha256:7cb46b0e3cf10dfd59b59c33eddbb706ca681eb0  0.0s
+[0m[34m => => exporting config sha256:0a60661d6acb0b2eba3f9bf47bc0ff8be94734eb25  0.0s
+[0m[34m => => pushing layers for registry.fly.io/ai-voice-copilot:deployment-01K  1.4s
+[0m[34m => => pushing layer sha256:0a60661d6acb0b2eba3f9bf47bc0ff8be94734eb256c2  1.3s
+[0m[34m => => pushing layer sha256:42641f180f9b50b2a837f1728ffad4edb9b5d9fa4b350  1.1s
+[0m[34m => => pushing layer sha256:60296851ed7dcc6acdd8d8580d37d3ae6b6d904e30639  0.1s
+[0m[34m => => pushing layer sha256:b163db4c44811c177a6d85d8ffc09c8d65e394c5f0471  0.5s
+[0m[34m => => pushing layer sha256:aeb36cb422abdd0c4cfaab5ad6d996bbd850527c1e975  0.8s
+[0m[34m => => pushing layer sha256:0bc0e85e159032bf16c7baf66e80e531b8c713cad3604  0.7s
+[0m[34m => => pushing layer sha256:dc98622cdf93028fdcbf3bf4bcf8cd0a30101fb8d99c4  1.2s
+[0m[34m => => pushing layer sha256:c396371ff1e5c067cf85dfe70f61bbb7f74f95a0547ea  1.2s
+[0m[34m => => pushing layer sha256:fc664ce9d425c38ccb3551b937f43d801a1881ca5db5a  1.4s
+[0m[34m => => pushing manifest for registry.fly.io/ai-voice-copilot:deployment-0  0.1s
+[0m[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 8.0s (10/10) FINISHED                                              
+[34m => [internal] load build definition from Dockerfile                       0.4s
+[0m[34m => => transferring dockerfile: 322B                                       0.4s
+[0m[34m => [internal] load metadata for docker.io/library/python:3.12-slim        0.3s
+[0m[34m => [internal] load .dockerignore                                          0.3s
+[0m[34m => => transferring context: 2B                                            0.3s
+[0m[34m => [1/5] FROM docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => => resolve docker.io/library/python:3.12-slim@sha256:f3fa41d74a768c2f  0.0s
+[0m[34m => [internal] load build context                                          1.4s
+[0m[34m => => transferring context: 782.69kB                                      1.4s
+[0m[34m => CACHED [2/5] WORKDIR /app                                              0.0s
+[0m[34m => CACHED [3/5] COPY requirements.txt .                                   0.0s
+[0m[34m => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt        0.0s
+[0m[34m => [5/5] COPY . .                                                         1.6s
+[0m[34m => exporting to image                                                     3.8s
+[0m[34m => => exporting layers                                                    2.2s
+[0m[34m => => exporting manifest sha256:7cb46b0e3cf10dfd59b59c33eddbb706ca681eb0  0.0s
+[0m[34m => => exporting config sha256:0a60661d6acb0b2eba3f9bf47bc0ff8be94734eb25  0.0s
+[0m[34m => => pushing layers for registry.fly.io/ai-voice-copilot:deployment-01K  1.4s
+[0m[34m => => pushing layer sha256:0a60661d6acb0b2eba3f9bf47bc0ff8be94734eb256c2  1.3s
+[0m[34m => => pushing layer sha256:42641f180f9b50b2a837f1728ffad4edb9b5d9fa4b350  1.1s
+[0m[34m => => pushing layer sha256:60296851ed7dcc6acdd8d8580d37d3ae6b6d904e30639  0.1s
+[0m[34m => => pushing layer sha256:b163db4c44811c177a6d85d8ffc09c8d65e394c5f0471  0.5s
+[0m[34m => => pushing layer sha256:aeb36cb422abdd0c4cfaab5ad6d996bbd850527c1e975  0.8s
+[0m[34m => => pushing layer sha256:0bc0e85e159032bf16c7baf66e80e531b8c713cad3604  0.7s
+[0m[34m => => pushing layer sha256:dc98622cdf93028fdcbf3bf4bcf8cd0a30101fb8d99c4  1.2s
+[0m[34m => => pushing layer sha256:c396371ff1e5c067cf85dfe70f61bbb7f74f95a0547ea  1.2s
+[0m[34m => => pushing layer sha256:fc664ce9d425c38ccb3551b937f43d801a1881ca5db5a  1.4s
+[0m[34m => => pushing manifest for registry.fly.io/ai-voice-copilot:deployment-0  0.1s
+[0m[?25h[0;32m--> Build Summary:  (​)[0m
+[38;5;252m--> Building image done[0m
+image: registry.fly.io/ai-voice-copilot:deployment-01KJTVN4KR4YVXZDV7G2DCHGM2
+image size: 65 MB
+
+Watch your deployment at [38;5;134mhttps://fly.io/apps/ai-voice-copilot/monitoring[m
+
+[2B-------
+Updating existing machines in '[0;1;39mai-voice-copilot[0m' with rolling strategy
+[2K
+[2K
+[2A
+-------
+   Waiting for job
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠋ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠙ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠙ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠹ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠹ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠸ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠸ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠼ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠼ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠴ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠴ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠦ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠦ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠧ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠧ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠇ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠇ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠏ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠏ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠋ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠋ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠙ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠙ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠹ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠹ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠸ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠸ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠼ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠼ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠴ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠴ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠦ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠦ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠧ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠧ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠇ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠇ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠏ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠏ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠋ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠋ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠙ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠙ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠹ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠹ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠸ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠸ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠼ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠼ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠴ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠴ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠦ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠦ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠧ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠧ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠇ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠇ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠏ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠏ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠋ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠋ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠙ Acquiring lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠙ Acquired lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠙ Updating machine config for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠙ Updating 4d892724a32978 [app]
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠙ Updating 4d892724a32978 [app]
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠹ Updating 4d892724a32978 [app]
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠹ Updating 4d892724a32978 [app]
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠸ Updating 4d892724a32978 [app]
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠸ Updating 4d892724a32978 [app]
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠼ Updating 4d892724a32978 [app]
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠼ Updating 4d892724a32978 [app]
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠴ Updating 4d892724a32978 [app]
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠴ Updating 4d892724a32978 [app]
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠴ Updated machine config for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠴ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠦ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠦ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠧ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠧ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠇ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠇ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠏ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠏ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠋ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠋ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠙ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠙ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠹ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠹ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠸ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠸ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠼ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠼ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠴ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠴ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠦ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠦ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠧ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠧ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠇ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠇ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠏ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠏ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠋ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠋ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠙ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠙ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠹ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠹ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠸ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠸ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠼ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠼ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠴ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠴ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠦ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠦ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠧ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠧ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠇ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠇ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠏ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠏ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠋ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠋ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠙ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠙ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠹ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠹ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠸ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠸ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠼ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠼ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠴ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠴ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠦ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠦ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠧ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠧ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠇ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠇ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠏ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠏ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠋ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠋ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠙ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠙ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠹ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠹ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠸ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠸ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠼ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠼ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠴ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠴ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠦ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠦ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠧ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠧ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠇ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠇ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠏ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠏ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠋ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠋ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠙ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠙ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠹ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠹ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠸ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠸ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠼ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠼ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠴ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠴ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠦ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠦ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠧ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠧ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠇ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠇ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠏ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠏ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠋ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠋ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠙ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠙ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠹ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠹ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠸ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠸ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠼ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠼ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠴ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠴ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠦ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠦ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠧ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠧ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠇ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠇ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠏ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠏ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠋ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠋ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠙ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠙ Waiting for machine 4d892724a32978 to reach a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠙ Machine 4d892724a32978 reached started state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠹ Machine 4d892724a32978 reached started state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠹ Machine 4d892724a32978 reached started state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠸ Machine 4d892724a32978 reached started state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠸ Machine 4d892724a32978 reached started state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠼ Machine 4d892724a32978 reached started state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠼ Machine 4d892724a32978 reached started state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠴ Machine 4d892724a32978 reached started state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠴ Machine 4d892724a32978 reached started state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠦ Machine 4d892724a32978 reached started state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠦ Machine 4d892724a32978 reached started state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠦ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠧ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠧ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠇ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠇ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠏ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠏ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠋ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠋ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠙ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠙ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠹ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠹ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠸ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠸ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠼ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠼ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠴ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠴ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠦ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠦ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠧ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠧ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠇ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠇ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠏ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠏ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠋ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠋ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠙ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠙ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠹ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠹ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠸ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠸ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠼ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠼ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠴ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠴ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠦ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠦ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠧ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠧ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠇ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠇ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠏ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠏ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠋ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠋ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠙ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠙ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠹ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠹ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠸ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠸ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠼ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠼ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠴ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠴ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠦ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠦ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠧ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠧ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠇ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠇ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠏ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠏ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠋ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠋ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠙ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠙ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠹ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠹ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠸ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠸ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠼ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠼ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠴ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠴ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠦ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠦ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠧ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠧ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠇ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠇ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠏ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠏ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠋ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠋ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠙ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠙ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠹ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠹ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠸ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠸ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠼ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠼ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠴ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠴ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠦ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠦ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠧ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠧ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠇ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠇ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠏ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠏ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠋ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠋ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠙ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠙ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠹ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠹ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠸ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠸ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠼ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠼ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠴ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠴ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠦ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠦ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠧ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠧ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠇ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠇ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠏ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠏ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠋ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠋ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠙ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠙ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠹ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠹ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠸ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠸ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠼ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠼ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠴ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠴ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠦ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠦ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠧ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠧ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠇ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠇ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠏ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠏ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠋ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠋ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠙ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠙ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠹ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠹ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠸ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠸ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠼ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠼ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠴ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠴ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠦ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠦ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠧ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠧ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠇ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠇ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠏ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠏ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠋ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠋ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠙ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠙ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠹ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠹ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠸ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠸ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠼ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠼ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠴ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠴ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠦ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠦ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠧ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠧ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠇ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠇ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠏ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠏ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠋ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠋ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠙ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠙ Running smoke checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠙ Running machine checks on machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠙ Checking health of machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠹ Checking health of machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠹ Checking health of machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠸ Checking health of machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠸ Checking health of machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠼ Checking health of machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠼ Checking health of machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠴ Checking health of machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠴ Checking health of machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠦ Checking health of machine 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ✔ Machine 4d892724a32978 is now in a good state
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠦ Clearing lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠦ Clearing lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠧ Clearing lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠧ Clearing lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠇ Clearing lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ⠇ Clearing lease for 4d892724a32978
+[2K[3A[2K
+[2K
+[2K
+[3A
+-------
+ ✔ Cleared lease for 4d892724a32978
+[2K[3A[3B-------
+Checking DNS configuration for [0;1;39mai-voice-copilot.fly.dev[0m
+[0;32m✓ DNS configuration verified[0m
+
+Visit your newly deployed app at [0;32mhttps://ai-voice-copilot.fly.dev/[0m
+
+[1m[7m%[27m[1m[0m                                                                                [0m[27m[24m[Jmacbookair@MacBook-Air-MacBook AI-Voice-Copilot % [K[?2004h[?2004l
+[1m[7m%[27m[1m[0m                                                                                [0m[27m[24m[Jmacbookair@MacBook-Air-MacBook AI-Voice-Copilot % [K[?2004h  fly status[?2004l
+[1mApp[0m
+  Name     = ai-voice-copilot                                        
+  Owner    = personal                                                
+  Hostname = ai-voice-copilot.fly.dev                                
+  Image    = ai-voice-copilot:deployment-01KJTVN4KR4YVXZDV7G2DCHGM2  
+
+[1mMachines[0m
+PROCESS	ID            	VERSION	REGION	STATE  	ROLE	CHECKS            	LAST UPDATED         
+app    	4d892724a32978	16     	iad   	started	    	1 total, 1 passing	2026-03-03T22:04:22Z	
+
+[1m[7m%[27m[1m[0m                                                                                [0m[27m[24m[Jmacbookair@MacBook-Air-MacBook AI-Voice-Copilot % [K[?2004h[?2004l
+[1m[7m%[27m[1m[0m                                                                                [0m[27m[24m[Jmacbookair@MacBook-Air-MacBook AI-Voice-Copilot % [K[?2004h  python3 -m py_compile /Users/ [Kmmacbookair/Desktop/Laba/AI-Voice-Copilot/main.py && echo "✅ OK" || echo "❌ FAI [KLL"[?2004l
+✅ OK
+[1m[7m%[27m[1m[0m                                                                                [0m[27m[24m[Jmacbookair@MacBook-Air-MacBook AI-Voice-Copilot % [K[?2004h[?2004l
+[1m[7m%[27m[1m[0m                                                                                [0m[27m[24m[Jmacbookair@MacBook-Air-MacBook AI-Voice-Copilot % [K[?2004h  fly secrets list[?2004l
+NAME            	DIGEST          	STATUS   
+DEEPGRAM_API_KEY	8a934bbe53c8d37b	Deployed	
+
+[1m[7m%[27m[1m[0m                                                                                [0m[27m[24m[Jmacbookair@MacBook-Air-MacBook AI-Voice-Copilot % [K[?2004h
