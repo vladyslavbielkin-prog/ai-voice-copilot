@@ -134,9 +134,9 @@ async def twilio_ws(websocket: WebSocket):
         """Стрімить аудіо в Google STT v2 і пушить транскрипти в браузер"""
         client = SpeechAsyncClient(
             credentials=credentials,
-            client_options={"api_endpoint": "europe-west4-speech.googleapis.com"},
+            client_options={"api_endpoint": "us-central1-speech.googleapis.com"},
         )
-        recognizer = f"projects/{project_id}/locations/europe-west4/recognizers/_"
+        recognizer = f"projects/{project_id}/locations/us-central1/recognizers/_"
 
         config = cloud_speech.RecognitionConfig(
             explicit_decoding_config=cloud_speech.ExplicitDecodingConfig(
@@ -157,7 +157,13 @@ async def twilio_ws(websocket: WebSocket):
             ),
         )
 
+        # Буферизуємо 100ms аудіо перед відправкою (замість кожного 20ms чанку)
+        # linear16 16kHz = 32000 bytes/sec → 100ms = 3200 bytes
+        BUFFER_TARGET = 3200
+        audio_buffer = bytearray()
+
         async def audio_gen():
+            nonlocal audio_buffer
             yield cloud_speech.StreamingRecognizeRequest(
                 recognizer=recognizer,
                 streaming_config=streaming_config,
@@ -165,8 +171,13 @@ async def twilio_ws(websocket: WebSocket):
             while True:
                 chunk = await audio_queue.get()
                 if chunk is None:
+                    if audio_buffer:
+                        yield cloud_speech.StreamingRecognizeRequest(audio=bytes(audio_buffer))
                     return
-                yield cloud_speech.StreamingRecognizeRequest(audio=chunk)
+                audio_buffer.extend(chunk)
+                if len(audio_buffer) >= BUFFER_TARGET:
+                    yield cloud_speech.StreamingRecognizeRequest(audio=bytes(audio_buffer))
+                    audio_buffer.clear()
 
         try:
             print(f"🧠 Google STT v2 підключено [{speaker}]", flush=True)
