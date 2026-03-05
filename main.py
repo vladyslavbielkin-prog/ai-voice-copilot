@@ -2,7 +2,7 @@ import os
 import json
 import base64
 import asyncio
-from contextlib import AsyncExitStack
+import audioop
 
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect, Request
 from fastapi.responses import JSONResponse, HTMLResponse
@@ -12,8 +12,9 @@ from twilio.jwt.access_token import AccessToken
 from twilio.jwt.access_token.grants import VoiceGrant
 from twilio.twiml.voice_response import VoiceResponse, Dial, Start, Stream
 
-from deepgram import AsyncDeepgramClient
-from deepgram.listen.v1.types import ListenV1Results
+from google.cloud.speech_v2 import SpeechAsyncClient
+from google.cloud.speech_v2.types import cloud_speech
+from google.oauth2 import service_account as gsa
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
@@ -106,122 +107,118 @@ async def broadcast_transcript(text: str, speaker: str = "unknown", interim: boo
 
 @app.websocket("/ws")
 async def twilio_ws(websocket: WebSocket):
-    """Приймає аудіо від Twilio Media Streams"""
+    """Приймає аудіо від Twilio Media Streams і транскрибує через Google STT v2"""
     await websocket.accept()
     print("📞 Дзвінок розпочато", flush=True)
 
-    dg_key = os.getenv("DEEPGRAM_API_KEY")
-    if not dg_key:
-        print("❌ DEEPGRAM_API_KEY not set", flush=True)
+    creds_json = os.getenv("GOOGLE_CREDENTIALS_JSON")
+    project_id = os.getenv("GOOGLE_PROJECT_ID")
+    if not creds_json or not project_id:
+        print("❌ GOOGLE_CREDENTIALS_JSON або GOOGLE_PROJECT_ID не задано", flush=True)
         await websocket.close(code=1011)
         return
 
-    dg = AsyncDeepgramClient(api_key=dg_key)
-
-    FLUSH_DELAY_SEC = 1.0
-
-    # Окремі буфери та таймери для кожного спікера
-    buffers: dict[str, list[str]] = {"sales": [], "client": []}
-    flush_tasks: dict[str, asyncio.Task | None] = {"sales": None, "client": None}
-
-    def do_flush(speaker: str):
-        buf = buffers[speaker]
-        if buf:
-            text = " ".join(buf)
-            label = "🟢 Sales" if speaker == "sales" else "🔵 Client"
-            print(f"{label}: {text}", flush=True)
-            buf.clear()
-            asyncio.create_task(broadcast_transcript(text, speaker))
-
-    async def flush_buffer(speaker: str):
-        await asyncio.sleep(FLUSH_DELAY_SEC)
-        do_flush(speaker)
-
-    async def read_transcripts(dg_socket, speaker: str):
-        async for message in dg_socket:
-            if not isinstance(message, ListenV1Results):
-                continue
-            try:
-                text = (message.channel.alternatives[0].transcript or "").strip()
-                if not text:
-                    continue
-
-                if not message.is_final:
-                    # Показуємо interim одразу — текст з'являється поки людина ще говорить
-                    asyncio.create_task(broadcast_transcript(text, speaker, interim=True))
-                    continue
-
-                buffers[speaker].append(text)
-                t = flush_tasks[speaker]
-                if message.speech_final:
-                    if t and not t.done():
-                        t.cancel()
-                    do_flush(speaker)
-                else:
-                    if t and not t.done():
-                        t.cancel()
-                    flush_tasks[speaker] = asyncio.create_task(flush_buffer(speaker))
-            except Exception as e:
-                print(f"⚠️ [{speaker}] Помилка парсингу: {e}", flush=True)
-
-    dg_params = dict(
-        model=os.getenv("DEEPGRAM_MODEL", "nova-2"),
-        language="uk",
-        encoding="mulaw",
-        sample_rate="8000",
-        channels="1",
-        interim_results="true",
-        punctuate="true",
-        smart_format="true",
+    credentials = gsa.Credentials.from_service_account_info(
+        json.loads(creds_json),
+        scopes=["https://www.googleapis.com/auth/cloud-platform"],
     )
 
+    # Черги аудіо для кожного спікера
+    inbound_queue: asyncio.Queue = asyncio.Queue()
+    outbound_queue: asyncio.Queue = asyncio.Queue()
+
+    # Стан конвертатора частоти дискретизації (mulaw 8kHz → linear16 16kHz)
+    ratecv_states: dict[str, object] = {"inbound": None, "outbound": None}
+
+    async def stream_to_google(audio_queue: asyncio.Queue, speaker: str):
+        """Стрімить аудіо в Google STT v2 і пушить транскрипти в браузер"""
+        client = SpeechAsyncClient(credentials=credentials)
+        recognizer = f"projects/{project_id}/locations/global/recognizers/_"
+
+        config = cloud_speech.RecognitionConfig(
+            explicit_decoding_config=cloud_speech.ExplicitDecodingConfig(
+                encoding=cloud_speech.ExplicitDecodingConfig.AudioEncoding.LINEAR16,
+                sample_rate_hertz=16000,
+                audio_channel_count=1,
+            ),
+            language_codes=["uk-UA"],
+            model="chirp_2",
+            features=cloud_speech.RecognitionFeatures(
+                enable_automatic_punctuation=True,
+            ),
+        )
+        streaming_config = cloud_speech.StreamingRecognitionConfig(
+            config=config,
+            streaming_features=cloud_speech.StreamingRecognitionFeatures(
+                interim_results=True,
+            ),
+        )
+
+        async def audio_gen():
+            yield cloud_speech.StreamingRecognizeRequest(
+                recognizer=recognizer,
+                streaming_config=streaming_config,
+            )
+            while True:
+                chunk = await audio_queue.get()
+                if chunk is None:
+                    return
+                yield cloud_speech.StreamingRecognizeRequest(audio=chunk)
+
+        try:
+            print(f"🧠 Google STT v2 підключено [{speaker}]", flush=True)
+            async for response in await client.streaming_recognize(requests=audio_gen()):
+                for result in response.results:
+                    if not result.alternatives:
+                        continue
+                    text = result.alternatives[0].transcript.strip()
+                    if not text:
+                        continue
+                    is_final = result.is_final
+                    if is_final:
+                        label = "🟢 Sales" if speaker == "sales" else "🔵 Client"
+                        print(f"{label}: {text}", flush=True)
+                    asyncio.create_task(
+                        broadcast_transcript(text, speaker, interim=not is_final)
+                    )
+        except Exception as e:
+            print(f"⚠️ Google STT [{speaker}] помилка: {e}", flush=True)
+
+    inbound_task = asyncio.create_task(stream_to_google(inbound_queue, "client"))
+    outbound_task = asyncio.create_task(stream_to_google(outbound_queue, "sales"))
+
     try:
-        async with AsyncExitStack() as stack:
-            inbound_socket = await stack.enter_async_context(
-                dg.listen.v1.connect(**dg_params)
-            )
-            outbound_socket = await stack.enter_async_context(
-                dg.listen.v1.connect(**dg_params)
-            )
+        while True:
+            msg = await websocket.receive_text()
+            data = json.loads(msg)
+            event = data.get("event")
 
-            print("🧠 Deepgram підключено (x2)", flush=True)
+            if event == "media":
+                media = data.get("media", {})
+                payload_b64 = media.get("payload")
+                track = media.get("track", "inbound")
+                if payload_b64:
+                    # mulaw 8kHz → linear16 8kHz → linear16 16kHz
+                    mulaw_bytes = base64.b64decode(payload_b64)
+                    lin8 = audioop.ulaw2lin(mulaw_bytes, 2)
+                    lin16, ratecv_states[track] = audioop.ratecv(
+                        lin8, 2, 1, 8000, 16000, ratecv_states[track]
+                    )
+                    if track == "outbound":
+                        await outbound_queue.put(lin16)
+                    else:
+                        await inbound_queue.put(lin16)
 
-            inbound_task = asyncio.create_task(read_transcripts(inbound_socket, "client"))
-            outbound_task = asyncio.create_task(read_transcripts(outbound_socket, "sales"))
-
-            try:
-                while True:
-                    msg = await websocket.receive_text()
-                    data = json.loads(msg)
-                    event = data.get("event")
-
-                    if event == "media":
-                        media = data.get("media", {})
-                        payload_b64 = media.get("payload")
-                        track = media.get("track", "inbound")
-                        if payload_b64:
-                            audio_bytes = base64.b64decode(payload_b64)
-                            if track == "outbound":
-                                await outbound_socket.send_media(audio_bytes)
-                            else:
-                                await inbound_socket.send_media(audio_bytes)
-
-                    elif event == "stop":
-                        print("📵 Дзвінок завершено", flush=True)
-                        break
-
-            except WebSocketDisconnect:
+            elif event == "stop":
                 print("📵 Дзвінок завершено", flush=True)
+                break
 
-            finally:
-                inbound_task.cancel()
-                outbound_task.cancel()
-                for sp, t in flush_tasks.items():
-                    if t and not t.done():
-                        t.cancel()
-                do_flush("sales")
-                do_flush("client")
-                print("-" * 40, flush=True)
+    except WebSocketDisconnect:
+        print("📵 Дзвінок завершено", flush=True)
 
-    except Exception as e:
-        print(f"❌ Критична помилка: {e}", flush=True)
+    finally:
+        await inbound_queue.put(None)
+        await outbound_queue.put(None)
+        inbound_task.cancel()
+        outbound_task.cancel()
+        print("-" * 40, flush=True)

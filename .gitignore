@@ -21,3 +21,4 @@ Websocket.js
 
 # OS
 .DS_Store
+*.json
