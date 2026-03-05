@@ -132,8 +132,11 @@ async def twilio_ws(websocket: WebSocket):
 
     async def stream_to_google(audio_queue: asyncio.Queue, speaker: str):
         """Стрімить аудіо в Google STT v2 і пушить транскрипти в браузер"""
-        client = SpeechAsyncClient(credentials=credentials)
-        recognizer = f"projects/{project_id}/locations/global/recognizers/_"
+        client = SpeechAsyncClient(
+            credentials=credentials,
+            client_options={"api_endpoint": "europe-west4-speech.googleapis.com"},
+        )
+        recognizer = f"projects/{project_id}/locations/europe-west4/recognizers/_"
 
         config = cloud_speech.RecognitionConfig(
             explicit_decoding_config=cloud_speech.ExplicitDecodingConfig(
