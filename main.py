@@ -165,7 +165,7 @@ async def twilio_ws(websocket: WebSocket):
                 print(f"⚠️ [{speaker}] Помилка парсингу: {e}", flush=True)
 
     dg_params = dict(
-        model="nova-2",
+        model=os.getenv("DEEPGRAM_MODEL", "nova-2"),
         language="uk",
         encoding="mulaw",
         sample_rate="8000",
