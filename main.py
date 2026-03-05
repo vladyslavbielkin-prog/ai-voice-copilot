@@ -92,12 +92,12 @@ async def transcript_ws(websocket: WebSocket):
         transcript_clients.remove(websocket)
 
 
-async def broadcast_transcript(text: str, speaker: str = "unknown"):
+async def broadcast_transcript(text: str, speaker: str = "unknown", interim: bool = False):
     """Надсилає транскрипт всім підключеним браузерам"""
     dead = []
     for client in transcript_clients:
         try:
-            await client.send_text(json.dumps({"text": text, "speaker": speaker}))
+            await client.send_text(json.dumps({"text": text, "speaker": speaker, "interim": interim}))
         except Exception:
             dead.append(client)
     for d in dead:
@@ -143,8 +143,14 @@ async def twilio_ws(websocket: WebSocket):
                 continue
             try:
                 text = (message.channel.alternatives[0].transcript or "").strip()
-                if not text or not message.is_final:
+                if not text:
                     continue
+
+                if not message.is_final:
+                    # Показуємо interim одразу — текст з'являється поки людина ще говорить
+                    asyncio.create_task(broadcast_transcript(text, speaker, interim=True))
+                    continue
+
                 buffers[speaker].append(text)
                 t = flush_tasks[speaker]
                 if message.speech_final:

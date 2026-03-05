@@ -112,6 +112,11 @@
     .transcript-item.sales .speaker { color: #22c55e; }
     .transcript-item.client .speaker { color: #3b82f6; }
     .transcript-item .time { font-size: 11px; color: #555; margin-top: 4px; }
+    .transcript-item.interim {
+      opacity: 0.45;
+      font-style: italic;
+      border-left-style: dashed;
+    }
     .empty { text-align: center; color: #444; font-size: 13px; padding: 24px 0; }
   </style>
 </head>
@@ -163,14 +168,38 @@
     statusDot.className = "status-dot " + color;
   }
 
-  function addTranscript(text, speaker) {
+  // Зберігаємо interim елементи щоб замінювати їх фінальними
+  const interimEls = { sales: null, client: null };
+
+  function addTranscript(text, speaker, interim) {
     const empty = document.getElementById("emptyMsg");
     if (empty) empty.remove();
-    transcriptCount++;
-    transcriptCountEl.textContent = transcriptCount + " речень";
 
     const now = new Date().toLocaleTimeString("uk-UA");
     const speakerLabel = speaker === "sales" ? "🟢 Sales (агент)" : speaker === "client" ? "🔵 Клієнт" : "🎙 Невідомо";
+
+    if (interim) {
+      // Якщо вже є interim для цього спікера — оновлюємо його текст
+      if (interimEls[speaker]) {
+        interimEls[speaker].querySelector(".interim-text").textContent = text;
+        return;
+      }
+      // Створюємо новий interim елемент
+      const el = document.createElement("div");
+      el.className = "transcript-item interim " + (speaker || "");
+      el.innerHTML = `<div class="speaker">${speakerLabel}</div><span class="interim-text">${text}</span><div class="time">${now}</div>`;
+      transcriptList.prepend(el);
+      interimEls[speaker] = el;
+      return;
+    }
+
+    // Фінальний результат — видаляємо interim і додаємо фінальний
+    if (interimEls[speaker]) {
+      interimEls[speaker].remove();
+      interimEls[speaker] = null;
+    }
+    transcriptCount++;
+    transcriptCountEl.textContent = transcriptCount + " речень";
     const el = document.createElement("div");
     el.className = "transcript-item " + (speaker || "");
     el.innerHTML = `<div class="speaker">${speakerLabel}</div>${text}<div class="time">${now}</div>`;
@@ -264,7 +293,7 @@
     const ws = new WebSocket(`${proto}://${location.host}/transcript`);
     ws.onmessage = (e) => {
       const data = JSON.parse(e.data);
-      if (data.text) addTranscript(data.text, data.speaker || "unknown");
+      if (data.text) addTranscript(data.text, data.speaker || "unknown", data.interim || false);
     };
     ws.onclose = () => setTimeout(connectTranscriptWs, 2000);
   }
